@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://d2kjxvn0mo5pu"]
+
+[ext_resource type="Script" uid="uid://0y81bigd7g8t" path="res://Scripts/falling_item.gd" id="1_item"]
+
+[sub_resource type="RectangleShape2D" id="rect_shape"]
+size = Vector2(64, 64)
+
+[node name="FallingItem" type="Area2D" unique_id=30320616]
+collision_layer = 2
+script = ExtResource("1_item")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1141215179]
+shape = SubResource("rect_shape")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2131527845]
+position = Vector2(0, -10)
+scale = Vector2(0.5, 0.5)
+
+[node name="Label" type="Label" parent="." unique_id=1481421129]
+offset_left = -50.0
+offset_top = -15.0
+offset_right = 50.0
+offset_bottom = 15.0
+horizontal_alignment = 1
+vertical_alignment = 1

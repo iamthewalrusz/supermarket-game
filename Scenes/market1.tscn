@@ -1,0 +1,138 @@
+[gd_scene format=4 uid="uid://ltkbkf6pmc3c"]
+
+[ext_resource type="Script" uid="uid://dyod78tdgi3aj" path="res://Scripts/market_1.gd" id="1_mkt"]
+[ext_resource type="Texture2D" uid="uid://c6ek4wy8887vd" path="res://Assets/market2.png" id="2_bg"]
+[ext_resource type="Script" uid="uid://djiev1ntkya4t" path="res://Scripts/market_player.gd" id="3_player"]
+[ext_resource type="Texture2D" uid="uid://dvoxqd625sk0k" path="res://Assets/generated/market_floor_tile.png" id="3_w5f3h"]
+[ext_resource type="Texture2D" uid="uid://8lm7yvawe012" path="res://Assets/icon.svg" id="4_icon"]
+[ext_resource type="Script" uid="uid://cwc266onrt6bg" path="res://Scripts/market_item.gd" id="5_item"]
+[ext_resource type="Texture2D" uid="uid://dljoy2fma40tv" path="res://Assets/apple-fruit-cartoon-transparent-28.png" id="6_apple"]
+[ext_resource type="Texture2D" uid="uid://d31g3lvoeyxdm" path="res://Assets/milk-box-3d-rendering-isometric-icon-png.png" id="7_milk"]
+[ext_resource type="Texture2D" uid="uid://51s4qw4ygoqt" path="res://Assets/1536745806-clipart-xl.png" id="8_eggs"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mb61u"]
+texture = ExtResource("3_w5f3h")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_051im"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_mb61u")
+
+[sub_resource type="RectangleShape2D" id="player_shape"]
+size = Vector2(40, 60)
+
+[sub_resource type="RectangleShape2D" id="item_shape"]
+size = Vector2(36, 36)
+
+[node name="Market1" type="Node2D" unique_id=1551403199]
+script = ExtResource("1_mkt")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1117325451]
+visible = false
+z_index = -10
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_bg")
+
+[node name="Floor" type="TileMapLayer" parent="." unique_id=676563682]
+tile_map_data = PackedByteArray("AAAAABEAAAAAAAAAAAABABEAAAAAAAAAAAACABEAAAAAAAAAAAADABEAAAAAAAAAAAAEABEAAAAAAAAAAAAFABEAAAAAAAAAAAAGABEAAAAAAAAAAAAHABEAAAAAAAAAAAAIABEAAAAAAAAAAAAJABEAAAAAAAAAAAAKABEAAAAAAAAAAAALABEAAAAAAAAAAAAMABEAAAAAAAAAAAANABEAAAAAAAAAAAAOABEAAAAAAAAAAAAPABEAAAAAAAAAAAAQABEAAAAAAAAAAAARABEAAAAAAAAAAAASABEAAAAAAAAAAAATABEAAAAAAAAAAAAUABEAAAAAAAAAAAAVABEAAAAAAAAAAAAWABEAAAAAAAAAAAAXABEAAAAAAAAAAAAYABEAAAAAAAAAAAAZABEAAAAAAAAAAAAaABEAAAAAAAAAAAAbABEAAAAAAAAAAAAcABEAAAAAAAAAAAAdABEAAAAAAAAAAAAeABEAAAAAAAAAAAAfABEAAAAAAAAAAAAgABEAAAAAAAAAAAAhABEAAAAAAAAAAAAiABEAAAAAAAAAAAAjABEAAAAAAAAAAAAAABIAAAAAAAAAAAABABIAAAAAAAAAAAACABIAAAAAAAAAAAADABIAAAAAAAAAAAAEABIAAAAAAAAAAAAFABIAAAAAAAAAAAAGABIAAAAAAAAAAAAHABIAAAAAAAAAAAAIABIAAAAAAAAAAAAJABIAAAAAAAAAAAAKABIAAAAAAAAAAAALABIAAAAAAAAAAAAMABIAAAAAAAAAAAANABIAAAAAAAAAAAAOABIAAAAAAAAAAAAPABIAAAAAAAAAAAAQABIAAAAAAAAAAAARABIAAAAAAAAAAAASABIAAAAAAAAAAAATABIAAAAAAAAAAAAUABIAAAAAAAAAAAAVABIAAAAAAAAAAAAWABIAAAAAAAAAAAAXABIAAAAAAAAAAAAYABIAAAAAAAAAAAAZABIAAAAAAAAAAAAaABIAAAAAAAAAAAAbABIAAAAAAAAAAAAcABIAAAAAAAAAAAAdABIAAAAAAAAAAAAeABIAAAAAAAAAAAAfABIAAAAAAAAAAAAgABIAAAAAAAAAAAAhABIAAAAAAAAAAAAiABIAAAAAAAAAAAAjABIAAAAAAAAAAAAMAAkAAAAAAAAAAAANAAkAAAAAAAAAAAAOAAkAAAAAAAAAAAAPAAkAAAAAAAAAAAAQAAkAAAAAAAAAAAARAAkAAAAAAAAAAAASAAkAAAAAAAAAAAATAAkAAAAAAAAAAAAFAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAHAAYAAAAAAAAAAAAIAAYAAAAAAAAAAAAJAAYAAAAAAAAAAAAKAAYAAAAAAAAAAAAFAA0AAAAAAAAAAAAGAA0AAAAAAAAAAAAHAA0AAAAAAAAAAAAIAA0AAAAAAAAAAAAJAA0AAAAAAAAAAAAKAA0AAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_051im")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=638693135]
+position = Vector2(96, 500)
+script = ExtResource("3_player")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=2008126378]
+shape = SubResource("player_shape")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1880145382]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_icon")
+
+[node name="ItemApple" type="Area2D" parent="." unique_id=181012969 groups=["market_items"]]
+position = Vector2(1000, 520)
+collision_layer = 0
+script = ExtResource("5_item")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemApple" unique_id=2105996299]
+shape = SubResource("item_shape")
+
+[node name="Sprite2D" type="Sprite2D" parent="ItemApple" unique_id=2094888306]
+texture = ExtResource("6_apple")
+
+[node name="ItemMilk" type="Area2D" parent="." unique_id=1001036368 groups=["market_items"]]
+position = Vector2(560, 264)
+collision_layer = 0
+script = ExtResource("5_item")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemMilk" unique_id=160321593]
+shape = SubResource("item_shape")
+
+[node name="Sprite2D" type="Sprite2D" parent="ItemMilk" unique_id=1055622767]
+texture = ExtResource("7_milk")
+
+[node name="ItemEggs" type="Area2D" parent="." unique_id=91759433 groups=["market_items"]]
+position = Vector2(336, 168)
+collision_layer = 0
+script = ExtResource("5_item")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemEggs" unique_id=1447393302]
+shape = SubResource("item_shape")
+
+[node name="Sprite2D" type="Sprite2D" parent="ItemEggs" unique_id=496967606]
+texture = ExtResource("8_eggs")
+
+[node name="UI" type="Control" parent="." unique_id=1061456840]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="ListLabel" type="Label" parent="UI" unique_id=1658544455]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 380.0
+offset_bottom = 150.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 26
+text = "Shopping List:"
+
+[node name="WinLabel" type="Label" parent="UI" unique_id=2023519097]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -80.0
+offset_right = 320.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.4, 1, 0.4, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 38
+text = "You found everything!\nShopping done!\nLet's head home!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Blocker" type="ColorRect" parent="UI" unique_id=217247135]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.4)
+
+[connection signal="gui_input" from="UI/Blocker" to="." method="_on_blocker_gui_input"]

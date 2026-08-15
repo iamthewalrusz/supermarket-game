@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://35eudaey1awi"]
+
+[ext_resource type="Script" uid="uid://b6qoxi2pnjg2c" path="res://Scripts/road.gd" id="1_b51y2"]
+[ext_resource type="Texture2D" uid="uid://o62cbpbj7ba4" path="res://Assets/road.png" id="2_wtjdh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ffim"]
+bg_color = Color(0.18, 0.18, 0.18, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+corner_detail = 9
+
+[node name="Road" type="Node2D" unique_id=1512344931]
+script = ExtResource("1_b51y2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=724239933]
+position = Vector2(576, 325.00003)
+scale = Vector2(0.6, 0.5981482)
+texture = ExtResource("2_wtjdh")
+
+[node name="BankButton" type="TextureButton" parent="." unique_id=222336923]
+offset_left = 83.0
+offset_top = 282.0
+offset_right = 359.0
+offset_bottom = 461.0
+
+[node name="MarketButton" type="TextureButton" parent="." unique_id=2125813663]
+offset_left = 437.0
+offset_top = 264.0
+offset_right = 718.0
+offset_bottom = 461.0
+
+[node name="PetshopButton" type="TextureButton" parent="." unique_id=884886954]
+offset_left = 817.0
+offset_top = 246.0
+offset_right = 1041.0
+offset_bottom = 464.0
+
+[node name="Blocker" type="ColorRect" parent="." unique_id=1294674205]
+offset_right = 1150.0
+offset_bottom = 649.0
+color = Color(1, 1, 1, 0)
+
+[node name="MessageLabel" type="Label" parent="." unique_id=488697060]
+offset_top = 2.0
+offset_right = 1152.0
+offset_bottom = 214.0
+mouse_filter = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_8ffim")
+text = "Where is the market?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="MessageLabel" unique_id=713139700]
+layout_mode = 0
+offset_left = 1096.0
+offset_top = 162.0
+offset_right = 1144.0
+offset_bottom = 220.0
+theme_override_font_sizes/font_size = 42
+text = ">>"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VoiceAudio" type="AudioStreamPlayer2D" parent="." unique_id=840869167]
+panning_strength = 0.0
+
+[connection signal="pressed" from="BankButton" to="." method="_on_bank_button_pressed"]
+[connection signal="pressed" from="MarketButton" to="." method="_on_market_button_pressed"]
+[connection signal="pressed" from="PetshopButton" to="." method="_on_petshop_button_pressed"]
+[connection signal="gui_input" from="MessageLabel" to="." method="_on_message_label_gui_input"]

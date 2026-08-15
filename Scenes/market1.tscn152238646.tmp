@@ -1,0 +1,188 @@
+[gd_scene format=3 uid="uid://ltkbkf6pmc3c"]
+
+[ext_resource type="Script" uid="uid://dyod78tdgi3aj" path="res://Scripts/market_1.gd" id="1_njies"]
+[ext_resource type="Texture2D" uid="uid://c6ek4wy8887vd" path="res://Assets/market2.png" id="2_i12t1"]
+[ext_resource type="Texture2D" uid="uid://dljoy2fma40tv" path="res://Assets/apple-fruit-cartoon-transparent-28.png" id="3_skd31"]
+[ext_resource type="Texture2D" uid="uid://lkd6miteeo1p" path="res://Assets/Sprites/sarah1.png" id="3_w5f3h"]
+[ext_resource type="Script" uid="uid://c7g88lgyqtqnp" path="res://Scripts/apple.gd" id="4_xdme3"]
+[ext_resource type="Script" uid="uid://baulpg72f7aah" path="res://Scripts/list.gd" id="5_qxrmv"]
+[ext_resource type="Texture2D" uid="uid://pvwussbe13mb" path="res://Assets/steak-graphic-clipart-design-free-png.png" id="5_sb1u5"]
+[ext_resource type="Script" uid="uid://f1fys3aukew3" path="res://Scripts/steak.gd" id="6_sb1u5"]
+[ext_resource type="Texture2D" uid="uid://d31g3lvoeyxdm" path="res://Assets/milk-box-3d-rendering-isometric-icon-png.png" id="8_w5f3h"]
+[ext_resource type="Script" uid="uid://pdgnym5mopsa" path="res://Scripts/milk.gd" id="9_mb61u"]
+[ext_resource type="Texture2D" uid="uid://51s4qw4ygoqt" path="res://Assets/1536745806-clipart-xl.png" id="10_o3wkg"]
+[ext_resource type="Script" uid="uid://qgq7tsr2ppa4" path="res://Scripts/eggs.gd" id="11_rbe44"]
+
+[sub_resource type="SystemFont" id="SystemFont_i12t1"]
+font_names = PackedStringArray("Microsoft Tai Le")
+font_stretch = 175
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tu3tp"]
+bg_color = Color(0.18, 0.18, 0.18, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+corner_detail = 9
+
+[node name="Market1" type="Node2D" unique_id=987471362]
+script = ExtResource("1_njies")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=349189243]
+position = Vector2(576.00006, 324.00003)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_i12t1")
+
+[node name="Sarah" type="TextureRect" parent="." unique_id=1294927221]
+offset_left = 205.0
+offset_top = 360.0
+offset_right = 425.0
+offset_bottom = 580.0
+texture = ExtResource("3_w5f3h")
+
+[node name="Apple" type="TextureRect" parent="." unique_id=2040775759]
+offset_left = 600.0
+offset_top = 437.0
+offset_right = 1115.0
+offset_bottom = 1013.0
+scale = Vector2(0.12135922, 0.121359214)
+texture = ExtResource("3_skd31")
+script = ExtResource("4_xdme3")
+
+[node name="Steak" type="TextureRect" parent="." unique_id=620448563]
+offset_left = 697.0
+offset_top = 453.0
+offset_right = 1779.736
+offset_bottom = 964.48
+scale = Vector2(0.12135922, 0.121359214)
+texture = ExtResource("5_sb1u5")
+expand_mode = 1
+script = ExtResource("6_sb1u5")
+
+[node name="Milk" type="TextureRect" parent="." unique_id=1127257713]
+offset_left = 867.0
+offset_top = 436.0
+offset_right = 949.0
+offset_bottom = 518.0
+texture = ExtResource("8_w5f3h")
+expand_mode = 1
+script = ExtResource("9_mb61u")
+
+[node name="Eggs" type="TextureRect" parent="." unique_id=1036112642]
+offset_left = 696.0
+offset_top = 532.0
+offset_right = 826.3604
+offset_bottom = 613.0
+texture = ExtResource("10_o3wkg")
+expand_mode = 1
+script = ExtResource("11_rbe44")
+
+[node name="List" type="ColorRect" parent="." unique_id=1725656802]
+offset_left = 652.0
+offset_top = 95.0
+offset_right = 887.0
+offset_bottom = 243.0
+color = Color(1, 1, 1, 0)
+script = ExtResource("5_qxrmv")
+
+[node name="Label1" type="Label" parent="List" unique_id=1691517343]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 26.0
+offset_right = 228.0
+offset_bottom = 49.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="Checkmark" type="Label" parent="List/Label1" unique_id=1016240559]
+layout_mode = 0
+offset_left = -53.0
+offset_top = -25.0
+offset_right = -8.0
+offset_bottom = 54.0
+theme_override_colors/font_color = Color(0.2576502, 0.9999998, 0.32657728, 1)
+theme_override_fonts/font = SubResource("SystemFont_i12t1")
+theme_override_font_sizes/font_size = 50
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="List" unique_id=1029223524]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 77.0
+offset_right = 227.0
+offset_bottom = 100.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="Checkmark" type="Label" parent="List/Label2" unique_id=97221485]
+layout_mode = 0
+offset_left = -53.0
+offset_top = -33.0
+offset_right = -8.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(0.2576502, 0.9999998, 0.32657728, 1)
+theme_override_fonts/font = SubResource("SystemFont_i12t1")
+theme_override_font_sizes/font_size = 50
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="List" unique_id=713594085]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 119.0
+offset_right = 227.0
+offset_bottom = 142.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="Checkmark" type="Label" parent="List/Label3" unique_id=1643264234]
+layout_mode = 0
+offset_left = -53.0
+offset_top = -32.0
+offset_right = -8.0
+offset_bottom = 47.0
+theme_override_colors/font_color = Color(0.2576502, 0.9999998, 0.32657728, 1)
+theme_override_fonts/font = SubResource("SystemFont_i12t1")
+theme_override_font_sizes/font_size = 50
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Blocker" type="ColorRect" parent="." unique_id=1808283696]
+visible = false
+offset_left = -21.0
+offset_top = 116.0
+offset_right = 1120.0
+offset_bottom = 611.0
+color = Color(1, 1, 1, 0)
+
+[node name="MessageLabel" type="Label" parent="." unique_id=325307572]
+offset_left = 308.0
+offset_top = 12.0
+offset_right = 897.0
+offset_bottom = 157.0
+mouse_filter = 0
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_tu3tp")
+text = "We need apples, milk, and eggs."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="MessageLabel" unique_id=1861262816]
+layout_mode = 0
+offset_left = 532.0
+offset_top = 92.0
+offset_right = 580.0
+offset_bottom = 150.0
+theme_override_font_sizes/font_size = 42
+text = ">>"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VoiceAudio" type="AudioStreamPlayer2D" parent="." unique_id=619810745]
+panning_strength = 0.0
+
+[node name="SoundEffect" type="AudioStreamPlayer2D" parent="." unique_id=1223166438]
+panning_strength = 0.0
+
+[connection signal="gui_input" from="MessageLabel" to="." method="_on_message_label_gui_input"]

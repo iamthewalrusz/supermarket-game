@@ -1,0 +1,14 @@
+conversa entre os personagens
+1 tela entre a road e o market
+
+primeira tela: circuito
+segunda tela: cair um monte de produto pro o jogador escolher os produtos
+terceira tela: fase das compras, jogo de plataforma
+(na segunda e terceira tela, talvez fazer escolha de personagens diferentes)
+quarta tela: pagamento, escolha
+
+quanto o jogador finalizar o jogo, ele poderá rejogar cada minigame se desejar
+
+
+tela de escolher aonde ir: deixar escrito o nome de cada um em cima
+e também fazer com que você ande com o carro em vez de clicar

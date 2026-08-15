@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://8ob63mck2mcu"
+path="res://.godot/imported/yes this is the supermarket.mp3-d42700023fbfead5c645cdc007e3c0b3.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Dialogue/yes this is the supermarket.mp3"
+dest_files=["res://.godot/imported/yes this is the supermarket.mp3-d42700023fbfead5c645cdc007e3c0b3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

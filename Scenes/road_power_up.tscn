@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://6mg241gsfdny"]
+
+[ext_resource type="Script" uid="uid://s1ybxjhrc30d" path="res://Scripts/road_power_up.gd" id="1_7ddux"]
+[ext_resource type="Texture2D" uid="uid://y2xi32tcrmm7" path="res://Assets/Sprites/shield-icon-gold-and-green-color-32x32-32x32-pixel-art-eaaa.png" id="2_7ddux"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ddux"]
+size = Vector2(62, 76)
+
+[node name="RoadPowerUp" type="Area2D" unique_id=1379743022]
+script = ExtResource("1_7ddux")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=817297545]
+position = Vector2(1.9073486e-06, 0)
+scale = Vector2(0.07430871, 0.07430871)
+texture = ExtResource("2_7ddux")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1132042624]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_7ddux")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

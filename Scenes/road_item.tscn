@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://doa4r5aj67g5c"]
+
+[ext_resource type="Script" uid="uid://c81uwkh1xgylw" path="res://Scripts/road_item.gd" id="1_mveu6"]
+[ext_resource type="Texture2D" uid="uid://dfqgt7xraidtw" path="res://Assets/Sprites/star.png" id="2_mveu6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b71lw"]
+size = Vector2(66, 64)
+
+[node name="RoadItem" type="Area2D" unique_id=1379857063]
+script = ExtResource("1_mveu6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1900301731]
+scale = Vector2(0.2184466, 0.2184466)
+texture = ExtResource("2_mveu6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1046680820]
+shape = SubResource("RectangleShape2D_b71lw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

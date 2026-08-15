@@ -1,0 +1,38 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+autoload="{\"GameState\": \"res://Scripts/game_state.gd\", \"SceneTransition\": \"*res://Scripts/scene_transition.gd\"}"
+
+[application]
+
+config/name="SupermarketGame"
+run/main_scene="uid://c1q83vjjfql4s"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+config/icon="res://Assets/icon.svg"
+
+[autoload]
+
+SceneTransition="*res://Scripts/scene_transition.gd"
+GameState="*res://Scripts/game_state.gd"
+
+[gui]
+
+theme/custom_font="uid://dkockpr8xy87s"
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+rendering_device/driver.windows="d3d12"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

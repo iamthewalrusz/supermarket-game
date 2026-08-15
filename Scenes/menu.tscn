@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://c1q83vjjfql4s"]
+
+[ext_resource type="Script" uid="uid://ca1tsxs3oynav" path="res://Scripts/menu.gd" id="1_1rerr"]
+
+[node name="Menu" type="Node2D" unique_id=2034018986]
+script = ExtResource("1_1rerr")
+
+[node name="Control" type="Control" parent="." unique_id=1598822471]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Start" type="Button" parent="Control" unique_id=1435861032]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.0
+offset_top = 19.0
+offset_right = 113.0
+offset_bottom = 115.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start"
+
+[node name="Quit" type="Button" parent="Control" unique_id=2094613610]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.0
+offset_top = 146.0
+offset_right = 113.0
+offset_bottom = 242.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+
+[node name="Label" type="Label" parent="Control" unique_id=1317129897]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -282.0
+offset_top = -287.75
+offset_right = 282.0
+offset_bottom = -166.25
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 59
+text = "Supermarket Quest"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Control/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Control/Quit" to="." method="_on_quit_pressed"]

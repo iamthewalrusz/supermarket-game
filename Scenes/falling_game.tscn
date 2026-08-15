@@ -1,0 +1,168 @@
+[gd_scene format=3 uid="uid://bvk2m4xppr3qy"]
+
+[ext_resource type="Script" uid="uid://cwpxvs8a23adu" path="res://Scripts/falling_game.gd" id="1_game"]
+[ext_resource type="Script" uid="uid://rgnj1xvk7k04" path="res://Scripts/player_basket.gd" id="2_player"]
+[ext_resource type="FontFile" uid="uid://dkockpr8xy87s" path="res://Assets/Font/Pix32.ttf" id="4_font"]
+[ext_resource type="Texture2D" uid="uid://bknhimtqu1dbd" path="res://Assets/Sprites/sarah3.png" id="4_rjw63"]
+[ext_resource type="Texture2D" uid="uid://d348idopx3fhb" path="res://Assets/Sprites/sarah3walk1.png" id="5_0oc5l"]
+[ext_resource type="Texture2D" uid="uid://bqcpakaxjmas6" path="res://Assets/market3.png" id="5_market3"]
+[ext_resource type="Texture2D" uid="uid://blsjnv1wfkjwu" path="res://Assets/Sprites/sarah3walk3.png" id="6_s163b"]
+
+[sub_resource type="RectangleShape2D" id="basket_shape"]
+size = Vector2(80, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_58mrp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_rjw63")
+}],
+"loop": 1,
+"name": &"standing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_0oc5l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_s163b")
+}],
+"loop": 1,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="label_settings_large"]
+font = ExtResource("4_font")
+font_size = 26
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="label_settings"]
+font = ExtResource("4_font")
+font_size = 18
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="panel_style"]
+bg_color = Color(0.1, 0.1, 0.15, 0.92)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="FallingGame" type="Node2D" unique_id=2078717653]
+script = ExtResource("1_game")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=403542226]
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_market3")
+
+[node name="Ground" type="ColorRect" parent="." unique_id=976504544]
+visible = false
+offset_top = 600.0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.3, 0.7, 0.3, 1)
+
+[node name="PlayerBasket" type="CharacterBody2D" parent="." unique_id=787168806]
+position = Vector2(576, 590)
+collision_mask = 0
+script = ExtResource("2_player")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBasket" unique_id=809392168]
+shape = SubResource("basket_shape")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerBasket" unique_id=477576162]
+position = Vector2(-1.1920929e-07, -4.7683716e-07)
+scale = Vector2(0.20196079, 0.20196079)
+sprite_frames = SubResource("SpriteFrames_58mrp")
+animation = &"standing"
+frame_progress = 0.44169942
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=358947423]
+wait_time = 1.2
+
+[node name="UI" type="Control" parent="." unique_id=2099905663]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="TargetListLabel" type="Label" parent="UI" unique_id=2113479658]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 16.0
+offset_right = 560.0
+offset_bottom = 60.0
+text = "Find: Apple, Milk, Eggs"
+label_settings = SubResource("label_settings_large")
+
+[node name="CollectedListLabel" type="Label" parent="UI" unique_id=1900973294]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 66.0
+offset_right = 560.0
+offset_bottom = 100.0
+text = "Collected: None"
+label_settings = SubResource("label_settings")
+
+[node name="LivesLabel" type="Label" parent="UI" unique_id=2022028286]
+layout_mode = 0
+offset_left = 920.0
+offset_top = 16.0
+offset_right = 1132.0
+offset_bottom = 56.0
+text = "❤ ❤ ❤"
+label_settings = SubResource("label_settings_large")
+horizontal_alignment = 2
+
+[node name="ScoreLabel" type="Label" parent="UI" unique_id=57034543]
+layout_mode = 0
+offset_left = 920.0
+offset_top = 62.0
+offset_right = 1132.0
+offset_bottom = 96.0
+text = "Score: 0"
+label_settings = SubResource("label_settings")
+horizontal_alignment = 2
+
+[node name="Blocker" type="ColorRect" parent="UI" unique_id=1165277283]
+visible = false
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.5)
+
+[node name="MessagePanel" type="Panel" parent="UI" unique_id=1253839098]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -120.0
+offset_right = 220.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("panel_style")
+
+[node name="MessageLabel" type="Label" parent="UI/MessagePanel" unique_id=1191218851]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Great job!"
+label_settings = SubResource("label_settings_large")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="gui_input" from="UI/Blocker" to="." method="_on_blocker_gui_input"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b4tktuittffop"
+path="res://.godot/imported/oops that is the bank.mp3-108451cb7ef3ea52731a4f080a6b643f.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Dialogue/oops that is the bank.mp3"
+dest_files=["res://.godot/imported/oops that is the bank.mp3-108451cb7ef3ea52731a4f080a6b643f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
