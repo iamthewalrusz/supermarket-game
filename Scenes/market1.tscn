@@ -4,10 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://c6ek4wy8887vd" path="res://Assets/market2.png" id="2_bg"]
 [ext_resource type="Script" uid="uid://djiev1ntkya4t" path="res://Scripts/market_player.gd" id="3_player"]
 [ext_resource type="Texture2D" uid="uid://dvoxqd625sk0k" path="res://Assets/generated/market_floor_tile.png" id="3_w5f3h"]
-[ext_resource type="Texture2D" uid="uid://8lm7yvawe012" path="res://Assets/icon.svg" id="4_icon"]
-[ext_resource type="Script" uid="uid://cwc266onrt6bg" path="res://Scripts/market_item.gd" id="5_item"]
-[ext_resource type="Script" uid="uid://d1s5cyu8xaya8" path="res://Scripts/market_enemy.gd" id="9_enemy"]
-[ext_resource type="Texture2D" uid="uid://wc0km8jvbclm" path="res://Assets/Sprites/money.png" id="10_money"]
+[ext_resource type="PackedScene" uid="uid://b2fal30ydif44" path="res://Scenes/money.tscn" id="9_051im"]
+[ext_resource type="PackedScene" uid="uid://bxwn8dndgx20o" path="res://Scenes/enemy.tscn" id="10_mb61u"]
 [ext_resource type="Texture2D" uid="uid://bknhimtqu1dbd" path="res://Assets/Sprites/sarah3.png" id="11_sarah"]
 [ext_resource type="Texture2D" uid="uid://d348idopx3fhb" path="res://Assets/Sprites/sarah3walk1.png" id="12_walk1"]
 [ext_resource type="Texture2D" uid="uid://blsjnv1wfkjwu" path="res://Assets/Sprites/sarah3walk3.png" id="13_walk3"]
@@ -48,15 +46,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="item_shape"]
-size = Vector2(36, 36)
-
-[sub_resource type="RectangleShape2D" id="enemy_shape"]
-size = Vector2(40, 40)
-
-[sub_resource type="RectangleShape2D" id="enemy_hitbox_shape"]
-size = Vector2(130, 90)
-
 [node name="Market1" type="Node2D" unique_id=1551403199]
 script = ExtResource("1_mkt")
 
@@ -68,7 +57,7 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_bg")
 
 [node name="Floor" type="TileMapLayer" parent="." unique_id=676563682]
-tile_map_data = PackedByteArray("AAAAABEAAAAAAAAAAAABABEAAAAAAAAAAAACABEAAAAAAAAAAAADABEAAAAAAAAAAAAEABEAAAAAAAAAAAAFABEAAAAAAAAAAAAGABEAAAAAAAAAAAAHABEAAAAAAAAAAAAIABEAAAAAAAAAAAAJABEAAAAAAAAAAAAKABEAAAAAAAAAAAALABEAAAAAAAAAAAAMABEAAAAAAAAAAAANABEAAAAAAAAAAAAOABEAAAAAAAAAAAAPABEAAAAAAAAAAAAQABEAAAAAAAAAAAARABEAAAAAAAAAAAASABEAAAAAAAAAAAATABEAAAAAAAAAAAAUABEAAAAAAAAAAAAVABEAAAAAAAAAAAAWABEAAAAAAAAAAAAXABEAAAAAAAAAAAAYABEAAAAAAAAAAAAZABEAAAAAAAAAAAAaABEAAAAAAAAAAAAbABEAAAAAAAAAAAAcABEAAAAAAAAAAAAdABEAAAAAAAAAAAAeABEAAAAAAAAAAAAfABEAAAAAAAAAAAAgABEAAAAAAAAAAAAhABEAAAAAAAAAAAAiABEAAAAAAAAAAAAjABEAAAAAAAAAAAAAABIAAAAAAAAAAAABABIAAAAAAAAAAAACABIAAAAAAAAAAAADABIAAAAAAAAAAAAEABIAAAAAAAAAAAAFABIAAAAAAAAAAAAGABIAAAAAAAAAAAAHABIAAAAAAAAAAAAIABIAAAAAAAAAAAAJABIAAAAAAAAAAAAKABIAAAAAAAAAAAALABIAAAAAAAAAAAAMABIAAAAAAAAAAAANABIAAAAAAAAAAAAOABIAAAAAAAAAAAAPABIAAAAAAAAAAAAQABIAAAAAAAAAAAARABIAAAAAAAAAAAASABIAAAAAAAAAAAATABIAAAAAAAAAAAAUABIAAAAAAAAAAAAVABIAAAAAAAAAAAAWABIAAAAAAAAAAAAXABIAAAAAAAAAAAAYABIAAAAAAAAAAAAZABIAAAAAAAAAAAAaABIAAAAAAAAAAAAbABIAAAAAAAAAAAAcABIAAAAAAAAAAAAdABIAAAAAAAAAAAAeABIAAAAAAAAAAAAfABIAAAAAAAAAAAAgABIAAAAAAAAAAAAhABIAAAAAAAAAAAAiABIAAAAAAAAAAAAjABIAAAAAAAAAAAAMAAkAAAAAAAAAAAANAAkAAAAAAAAAAAAOAAkAAAAAAAAAAAAPAAkAAAAAAAAAAAAQAAkAAAAAAAAAAAARAAkAAAAAAAAAAAASAAkAAAAAAAAAAAATAAkAAAAAAAAAAAAFAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAHAAYAAAAAAAAAAAAIAAYAAAAAAAAAAAAJAAYAAAAAAAAAAAAKAAYAAAAAAAAAAAAFAA0AAAAAAAAAAAAGAA0AAAAAAAAAAAAHAA0AAAAAAAAAAAAIAA0AAAAAAAAAAAAJAA0AAAAAAAAAAAAKAA0AAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAABEAAAAAAAAAAAABABEAAAAAAAAAAAACABEAAAAAAAAAAAADABEAAAAAAAAAAAAEABEAAAAAAAAAAAAFABEAAAAAAAAAAAAGABEAAAAAAAAAAAAHABEAAAAAAAAAAAAIABEAAAAAAAAAAAAJABEAAAAAAAAAAAAKABEAAAAAAAAAAAALABEAAAAAAAAAAAAMABEAAAAAAAAAAAANABEAAAAAAAAAAAAOABEAAAAAAAAAAAAPABEAAAAAAAAAAAAQABEAAAAAAAAAAAARABEAAAAAAAAAAAASABEAAAAAAAAAAAATABEAAAAAAAAAAAAUABEAAAAAAAAAAAAVABEAAAAAAAAAAAAWABEAAAAAAAAAAAAXABEAAAAAAAAAAAAYABEAAAAAAAAAAAAZABEAAAAAAAAAAAAaABEAAAAAAAAAAAAbABEAAAAAAAAAAAAcABEAAAAAAAAAAAAdABEAAAAAAAAAAAAeABEAAAAAAAAAAAAfABEAAAAAAAAAAAAgABEAAAAAAAAAAAAhABEAAAAAAAAAAAAAABIAAAAAAAAAAAABABIAAAAAAAAAAAACABIAAAAAAAAAAAADABIAAAAAAAAAAAAEABIAAAAAAAAAAAAFABIAAAAAAAAAAAAGABIAAAAAAAAAAAAHABIAAAAAAAAAAAAIABIAAAAAAAAAAAAJABIAAAAAAAAAAAAKABIAAAAAAAAAAAALABIAAAAAAAAAAAAMABIAAAAAAAAAAAANABIAAAAAAAAAAAAOABIAAAAAAAAAAAAPABIAAAAAAAAAAAAQABIAAAAAAAAAAAARABIAAAAAAAAAAAASABIAAAAAAAAAAAATABIAAAAAAAAAAAAUABIAAAAAAAAAAAAVABIAAAAAAAAAAAAWABIAAAAAAAAAAAAXABIAAAAAAAAAAAAYABIAAAAAAAAAAAAZABIAAAAAAAAAAAAaABIAAAAAAAAAAAAbABIAAAAAAAAAAAAcABIAAAAAAAAAAAAdABIAAAAAAAAAAAAeABIAAAAAAAAAAAAfABIAAAAAAAAAAAAgABIAAAAAAAAAAAAhABIAAAAAAAAAAAAiABIAAAAAAAAAAAAMAAkAAAAAAAAAAAANAAkAAAAAAAAAAAAOAAkAAAAAAAAAAAAPAAkAAAAAAAAAAAAQAAkAAAAAAAAAAAARAAkAAAAAAAAAAAASAAkAAAAAAAAAAAATAAkAAAAAAAAAAAAFAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAHAAYAAAAAAAAAAAAIAAYAAAAAAAAAAAAJAAYAAAAAAAAAAAAKAAYAAAAAAAAAAAAFAA0AAAAAAAAAAAAGAA0AAAAAAAAAAAAHAA0AAAAAAAAAAAAIAA0AAAAAAAAAAAAJAA0AAAAAAAAAAAAKAA0AAAAAAAAAAAAiABEAAAAAAAAAAAAjABEAAAAAAAAAAAAjABIAAAAAAAAAAAApABAAAAAAAAAAAAApABEAAAAAAAAAAAAqABEAAAAAAAAAAAAqABAAAAAAAAAAAAAwAA4AAAAAAAAAAAAwAA8AAAAAAAAAAAAxAA8AAAAAAAAAAAAxAA4AAAAAAAAAAAA1AAsAAAAAAAAAAAA1AAwAAAAAAAAAAAA2AAwAAAAAAAAAAAA2AAsAAAAAAAAAAAA6AAgAAAAAAAAAAAA7AAgAAAAAAAAAAAA7AAkAAAAAAAAAAAA8AAkAAAAAAAAAAAA9AAgAAAAAAAAAAAA6AAkAAAAAAAAAAAA9AAkAAAAAAAAAAAA+AAkAAAAAAAAAAAA8AAgAAAAAAAAAAAA+AAgAAAAAAAAAAAA/AAgAAAAAAAAAAABAAAgAAAAAAAAAAABBAAgAAAAAAAAAAABCAAgAAAAAAAAAAABDAAgAAAAAAAAAAABEAAgAAAAAAAAAAABFAAgAAAAAAAAAAABFAAkAAAAAAAAAAABEAAkAAAAAAAAAAABDAAkAAAAAAAAAAABCAAkAAAAAAAAAAABBAAkAAAAAAAAAAABAAAkAAAAAAAAAAAA/AAkAAAAAAAAAAABGAAkAAAAAAAAAAABHAAkAAAAAAAAAAABIAAkAAAAAAAAAAABJAAkAAAAAAAAAAABKAAkAAAAAAAAAAABLAAkAAAAAAAAAAABMAAkAAAAAAAAAAABNAAkAAAAAAAAAAABOAAkAAAAAAAAAAABOAAgAAAAAAAAAAABNAAgAAAAAAAAAAABMAAgAAAAAAAAAAABLAAgAAAAAAAAAAABKAAgAAAAAAAAAAABJAAgAAAAAAAAAAABIAAgAAAAAAAAAAABHAAgAAAAAAAAAAABGAAgAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_051im")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=638693135]
@@ -86,170 +75,68 @@ scale = Vector2(0.029993368, 0.029993368)
 sprite_frames = SubResource("SpriteFrames_market")
 animation = &"standing"
 
-[node name="Money1" type="Area2D" parent="." unique_id=440000001 groups=["market_items"]]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=553007167]
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+
+[node name="Money" type="Node" parent="." unique_id=981243200]
+
+[node name="Money1" parent="Money" unique_id=1022837241 instance=ExtResource("9_051im")]
 position = Vector2(180, 520)
-collision_layer = 0
-script = ExtResource("5_item")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Money1" unique_id=440000002]
-shape = SubResource("item_shape")
+[node name="Money2" parent="Money" unique_id=1656470706 instance=ExtResource("9_051im")]
+position = Vector2(425, 523)
 
-[node name="Sprite2D" type="Sprite2D" parent="Money1" unique_id=440000003]
-texture = ExtResource("10_money")
+[node name="Money3" parent="Money" unique_id=1383980257 instance=ExtResource("9_051im")]
+position = Vector2(655, 522)
 
-[node name="Money2" type="Area2D" parent="." unique_id=440000011 groups=["market_items"]]
-position = Vector2(420, 520)
-collision_layer = 0
-script = ExtResource("5_item")
+[node name="Money4" parent="Money" unique_id=2000797879 instance=ExtResource("9_051im")]
+position = Vector2(204, 396)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Money2" unique_id=440000012]
-shape = SubResource("item_shape")
+[node name="Money5" parent="Money" unique_id=1980704011 instance=ExtResource("9_051im")]
+position = Vector2(621, 264)
 
-[node name="Sprite2D" type="Sprite2D" parent="Money2" unique_id=440000013]
-texture = ExtResource("10_money")
+[node name="Money6" parent="Money" unique_id=1765527325 instance=ExtResource("9_051im")]
+position = Vector2(259, 168)
 
-[node name="Money3" type="Area2D" parent="." unique_id=440000021 groups=["market_items"]]
-position = Vector2(700, 520)
-collision_layer = 0
-script = ExtResource("5_item")
+[node name="Money7" parent="Money" unique_id=1973148414 instance=ExtResource("9_051im")]
+position = Vector2(1346, 494)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Money3" unique_id=440000022]
-shape = SubResource("item_shape")
+[node name="Money8" parent="Money" unique_id=767355107 instance=ExtResource("9_051im")]
+position = Vector2(1570, 428)
 
-[node name="Sprite2D" type="Sprite2D" parent="Money3" unique_id=440000023]
-texture = ExtResource("10_money")
+[node name="Money9" parent="Money" unique_id=367048458 instance=ExtResource("9_051im")]
+position = Vector2(1732, 332)
 
-[node name="Money4" type="Area2D" parent="." unique_id=440000031 groups=["market_items"]]
-position = Vector2(1000, 520)
-collision_layer = 0
-script = ExtResource("5_item")
+[node name="Enemies" type="Node" parent="." unique_id=530486999]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Money4" unique_id=440000032]
-shape = SubResource("item_shape")
-
-[node name="Sprite2D" type="Sprite2D" parent="Money4" unique_id=440000033]
-texture = ExtResource("10_money")
-
-[node name="Money5" type="Area2D" parent="." unique_id=440000041 groups=["market_items"]]
-position = Vector2(260, 168)
-collision_layer = 0
-script = ExtResource("5_item")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Money5" unique_id=440000042]
-shape = SubResource("item_shape")
-
-[node name="Sprite2D" type="Sprite2D" parent="Money5" unique_id=440000043]
-texture = ExtResource("10_money")
-
-[node name="Money6" type="Area2D" parent="." unique_id=440000051 groups=["market_items"]]
-position = Vector2(200, 388)
-collision_layer = 0
-script = ExtResource("5_item")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Money6" unique_id=440000052]
-shape = SubResource("item_shape")
-
-[node name="Sprite2D" type="Sprite2D" parent="Money6" unique_id=440000053]
-texture = ExtResource("10_money")
-
-[node name="Money7" type="Area2D" parent="." unique_id=440000061 groups=["market_items"]]
-position = Vector2(300, 388)
-collision_layer = 0
-script = ExtResource("5_item")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Money7" unique_id=440000062]
-shape = SubResource("item_shape")
-
-[node name="Sprite2D" type="Sprite2D" parent="Money7" unique_id=440000063]
-texture = ExtResource("10_money")
-
-[node name="Money8" type="Area2D" parent="." unique_id=440000071 groups=["market_items"]]
-position = Vector2(560, 258)
-collision_layer = 0
-script = ExtResource("5_item")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Money8" unique_id=440000072]
-shape = SubResource("item_shape")
-
-[node name="Sprite2D" type="Sprite2D" parent="Money8" unique_id=440000073]
-texture = ExtResource("10_money")
-
-[node name="EnemyGround" type="CharacterBody2D" parent="." unique_id=330000001]
+[node name="Enemy1" parent="Enemies" unique_id=710267424 instance=ExtResource("10_mb61u")]
 position = Vector2(900, 516)
-collision_layer = 4
-collision_mask = 3
-script = ExtResource("9_enemy")
-patrol_min_x = 700.0
-patrol_max_x = 1050.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyGround" unique_id=330000002]
-shape = SubResource("enemy_shape")
-
-[node name="Sprite2D" type="Sprite2D" parent="EnemyGround" unique_id=330000003]
-modulate = Color(1, 0.35, 0.35, 1)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("4_icon")
-
-[node name="Hitbox" type="Area2D" parent="EnemyGround" unique_id=330000004]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyGround/Hitbox" unique_id=330000005]
-shape = SubResource("enemy_hitbox_shape")
-
-[node name="EnemyMid" type="CharacterBody2D" parent="." unique_id=330000006]
-position = Vector2(256, 388)
-collision_layer = 4
-collision_mask = 3
-script = ExtResource("9_enemy")
+[node name="Enemy2" parent="Enemies" unique_id=1430434997 instance=ExtResource("10_mb61u")]
+position = Vector2(267, 389)
 patrol_min_x = 180.0
 patrol_max_x = 330.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyMid" unique_id=330000007]
-shape = SubResource("enemy_shape")
-
-[node name="Sprite2D" type="Sprite2D" parent="EnemyMid" unique_id=330000008]
-modulate = Color(1, 0.35, 0.35, 1)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("4_icon")
-
-[node name="Hitbox" type="Area2D" parent="EnemyMid" unique_id=330000009]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyMid/Hitbox" unique_id=330000010]
-shape = SubResource("enemy_hitbox_shape")
-
-[node name="EnemyHigh" type="CharacterBody2D" parent="." unique_id=330000011]
-position = Vector2(512, 258)
-collision_layer = 4
-collision_mask = 3
-script = ExtResource("9_enemy")
+[node name="Enemy3" parent="Enemies" unique_id=964611210 instance=ExtResource("10_mb61u")]
+position = Vector2(511, 258)
 patrol_min_x = 400.0
 patrol_max_x = 620.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHigh" unique_id=330000012]
-shape = SubResource("enemy_shape")
+[node name="Enemy4" parent="Enemies" unique_id=624399355 instance=ExtResource("10_mb61u")]
+position = Vector2(2190, 228)
+patrol_min_x = 1883.0
+patrol_max_x = 2500.0
 
-[node name="Sprite2D" type="Sprite2D" parent="EnemyHigh" unique_id=330000013]
-modulate = Color(1, 0.35, 0.35, 1)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("4_icon")
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=57553052]
 
-[node name="Hitbox" type="Area2D" parent="EnemyHigh" unique_id=330000014]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHigh/Hitbox" unique_id=330000015]
-shape = SubResource("enemy_hitbox_shape")
-
-[node name="UI" type="Control" parent="." unique_id=1061456840]
+[node name="UI" type="Control" parent="CanvasLayer" unique_id=1061456840]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="MoneyLabel" type="Label" parent="UI" unique_id=1658544455]
+[node name="MoneyLabel" type="Label" parent="CanvasLayer/UI" unique_id=1658544455]
 layout_mode = 0
 offset_left = 24.0
 offset_top = 16.0
@@ -259,9 +146,9 @@ theme_override_colors/font_color = Color(1, 1, 0.4, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 26
-text = "Money: 0 / 6"
+text = "Money: 0 / 8"
 
-[node name="HPLabel" type="Label" parent="UI" unique_id=330000016]
+[node name="HPLabel" type="Label" parent="CanvasLayer/UI" unique_id=330000016]
 layout_mode = 0
 offset_left = 900.0
 offset_top = 16.0
@@ -274,7 +161,7 @@ theme_override_font_sizes/font_size = 30
 text = "❤❤❤❤❤"
 horizontal_alignment = 2
 
-[node name="WinLabel" type="Label" parent="UI" unique_id=2023519097]
+[node name="WinLabel" type="Label" parent="CanvasLayer/UI" unique_id=2023519097]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -298,7 +185,7 @@ Let's head home!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DeathLabel" type="Label" parent="UI" unique_id=330000017]
+[node name="DeathLabel" type="Label" parent="CanvasLayer/UI" unique_id=330000017]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -321,7 +208,7 @@ Try again!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Blocker" type="ColorRect" parent="UI" unique_id=217247135]
+[node name="Blocker" type="ColorRect" parent="CanvasLayer/UI" unique_id=217247135]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -331,4 +218,4 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.4)
 
-[connection signal="gui_input" from="UI/Blocker" to="." method="_on_blocker_gui_input"]
+[connection signal="gui_input" from="CanvasLayer/UI/Blocker" to="." method="_on_blocker_gui_input"]

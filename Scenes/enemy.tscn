@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bxwn8dndgx20o"]
+
+[ext_resource type="Script" uid="uid://d1s5cyu8xaya8" path="res://Scripts/market_enemy.gd" id="1_1f0kj"]
+[ext_resource type="Texture2D" uid="uid://8lm7yvawe012" path="res://Assets/icon.svg" id="2_afpow"]
+
+[sub_resource type="RectangleShape2D" id="enemy_shape"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="enemy_hitbox_shape"]
+size = Vector2(52, 53)
+
+[node name="EnemyGround" type="CharacterBody2D" unique_id=710267424]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_1f0kj")
+patrol_min_x = 700.0
+patrol_max_x = 1050.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1129923294]
+shape = SubResource("enemy_shape")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=864978398]
+modulate = Color(1, 0.35, 0.35, 1)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_afpow")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1605609719]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1552628279]
+shape = SubResource("enemy_hitbox_shape")

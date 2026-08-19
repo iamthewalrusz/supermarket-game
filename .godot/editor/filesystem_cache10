@@ -1,0 +1,91 @@
+78098b89c88a74ebe8c20117b8754620
+::res://::1787094118
+-áudio.txt::TextFile::-1::1787094118::0::1::::<><><>0<>0<><>::
+jogo ic.txt::TextFile::-1::1787094118::0::1::::<><><>0<>0<><>::
+::res://Assets/::1787094118
+1536745806-clipart-xl.png::CompressedTexture2D::2160484700348815419::1787094118::1787138102::1::::<><><>0<>0<>4f42ca9264af0d81c604acc9b0a77e6d<>res://.godot/imported/1536745806-clipart-xl.png-89424c90f3d6eab5db2b15daa2f7cacc.ctex::
+apple-fruit-cartoon-transparent-28.png::CompressedTexture2D::7950813054237515815::1787094118::1787138102::1::::<><><>0<>0<>73f354d8948048520c8c9b399a130ef9<>res://.godot/imported/apple-fruit-cartoon-transparent-28.png-7bda1fbec5a268c95ee25eae8331dbf7.ctex::
+banana.png::CompressedTexture2D::7865257084397768910::1787094118::1787138102::1::::<><><>0<>0<>b787c255cff882a6b22ed805afb16d09<>res://.godot/imported/banana.png-84185766284faac9e14ca030fb2867f4.ctex::
+bread.png::CompressedTexture2D::704902846262956853::1787094118::1787138102::1::::<><><>0<>0<>dda50597ffff73059aff05d97fa8d501<>res://.godot/imported/bread.png-04e154d6947c0edcf6bc62d232d5148c.ctex::
+cheese.png::CompressedTexture2D::9194702298600019613::1787094118::1787138104::1::::<><><>0<>0<>51cd4d8c7adb36829aca30bebdafe056<>res://.godot/imported/cheese.png-f6197fe849e2e492b815ec760d7e2f8f.ctex::
+fish.png::CompressedTexture2D::2063500770327741738::1787094118::1787138104::1::::<><><>0<>0<>72ca7030c0e09e85ce3d0a7d8755cbf2<>res://.godot/imported/fish.png-a4685f378b8cf206a737b60e7b38d4e8.ctex::
+icon.svg::CompressedTexture2D::2339727037698763059::1787094118::1787138104::1::::<><><>0<>0<>48426f747241fa6092040c609b929827<>res://.godot/imported/icon.svg-8193eb3d66a1b5143b8bb4c28c1dc139.ctex::
+intro.png::CompressedTexture2D::2472396654160546883::1787094118::1787138106::1::::<><><>0<>0<>4311e7ca5ffb63f46799d4d15f7714f7<>res://.godot/imported/intro.png-d2a3d9ba708c4285ebe0df6c9c9318dc.ctex::
+market2.png::CompressedTexture2D::6957613183266163717::1787094118::1787138106::1::::<><><>0<>0<>9fcc887e512509ec2dbed00cd9f57c64<>res://.godot/imported/market2.png-376eadfa1615be542762b6df25514e39.ctex::
+market3.png::CompressedTexture2D::3514482218592251219::1787094118::1787138106::1::::<><><>0<>0<>122a4d5222e6842a06ca263c48edc7a4<>res://.godot/imported/market3.png-a66fbdc3c05c168a846785f87ef9b292.ctex::
+market.png::CompressedTexture2D::1141688338459803166::1787094118::1787138112::1::::<><><>0<>0<>f12024d1ea6d8d1a1fb283f0a4809cec<>res://.godot/imported/market.png-b0440e5096ae48e040c7515c96918607.ctex::
+milk-box-3d-rendering-isometric-icon-png.png::CompressedTexture2D::9178638409575855566::1787094118::1787138112::1::::<><><>0<>0<>5c51eee0e1b209796eec31d2cb657f2b<>res://.godot/imported/milk-box-3d-rendering-isometric-icon-png.png-4c0c8940feb4f039ca5631deb9b6adc8.ctex::
+road2.png::CompressedTexture2D::2014827863492926429::1787094118::1787138112::1::::<><><>0<>0<>49ff0676f7e2857c12cf07663512ae1b<>res://.godot/imported/road2.png-3f6afbaa996079cb42c78e4d1e7670f5.ctex::
+road.png::CompressedTexture2D::1048282527454948497::1787094118::1787138114::1::::<><><>0<>0<>2968b91ea813f660cfad3a72176f80da<>res://.godot/imported/road.png-c3c47e2cc8c90beae2ad5c8a3bb2c3ca.ctex::
+steak-graphic-clipart-design-free-png.png::CompressedTexture2D::1097557050403318713::1787094118::1787138114::1::::<><><>0<>0<>99d147fbc3d4dae40f0a5f5f7e7a862d<>res://.godot/imported/steak-graphic-clipart-design-free-png.png-1ac5a30fa411b9b0a5556ce180d13fc2.ctex::
+::res://Assets/Audio/::1787094118
+::res://Assets/Audio/Dialogue/::1787094118
+mom and dad we need food.mp3::AudioStreamMP3::7802992232254493110::1787094118::1787138102::1::::<><><>0<>0<>4e2cc9ccdfd3821e962c4d3a1d9b713e<>res://.godot/imported/mom and dad we need food.mp3-e020668abec0b5e4075e14021ba4fa42.mp3str::
+oops that is the bank.mp3::AudioStreamMP3::4461762490249338039::1787094118::1787138102::1::::<><><>0<>0<>26420cea1e72b7af729746f0ed583568<>res://.godot/imported/oops that is the bank.mp3-108451cb7ef3ea52731a4f080a6b643f.mp3str::
+oops that is the petshop.mp3::AudioStreamMP3::4830795474361202477::1787094118::1787138100::1::::<><><>0<>0<>f78fe3e3f0567d4386655796e2450de3<>res://.godot/imported/oops that is the petshop.mp3-98ee38d6cb3fe1f62778e572fc8f4306.mp3str::
+we did it.mp3::AudioStreamMP3::6924943964745322701::1787094118::1787138100::1::::<><><>0<>0<>114a49a300150f41182e51d612c555ed<>res://.godot/imported/we did it.mp3-923b2026c5454b01650142724e8b8893.mp3str::
+we need apples milk and eggs.mp3::AudioStreamMP3::5151823933091295341::1787094118::1787138100::1::::<><><>0<>0<>3c8ad775035c9fc8abd4b1a7e60fbb75<>res://.godot/imported/we need apples milk and eggs.mp3-7d12a13efa707ea3235c90f8bb42eb9a.mp3str::
+where is the market.mp3::AudioStreamMP3::4804331616547203476::1787094118::1787138100::1::::<><><>0<>0<>06cc97a5ebf4ed195ee2484feeda4f06<>res://.godot/imported/where is the market.mp3-1d5a9f8bce70700a8551319bd6755bb9.mp3str::
+yes this is the supermarket.mp3::AudioStreamMP3::2345250694512490176::1787094118::1787138100::1::::<><><>0<>0<>30fb0f25563da0ec3a3a4a8a63af9b15<>res://.godot/imported/yes this is the supermarket.mp3-d42700023fbfead5c645cdc007e3c0b3.mp3str::
+::res://Assets/Audio/Sound Effects/::1787094118
+check-mark.mp3::AudioStreamMP3::841278454979279010::1787094118::1787138100::1::::<><><>0<>0<>3a3610a79084a1a881ca279b6545e809<>res://.godot/imported/check-mark.mp3-ded9f866b70f6c0730fcf5500da2fbf2.mp3str::
+::res://Assets/Font/::1787094118
+Pix32.ttf::FontFile::7890191883584060262::1787094118::1787138098::1::::<><><>0<>0<>aec6a7006149a16b6fc04eed30e93e5a<>res://.godot/imported/Pix32.ttf-c721f4ebe08f6681621d0272c08f1927.fontdata::
+::res://Assets/generated/::1787094118
+market_floor_tile.png::CompressedTexture2D::8663554326297480852::1787094118::1787138112::1::::<><><>0<>0<>5967cd677147f90041559bc05d21eaa8<>res://.godot/imported/market_floor_tile.png-4d755b2a252f14a455bc8898cd0d54cc.ctex::
+market_floor_tile_frame_0.png::CompressedTexture2D::6473093920612481548::1787094118::1787138114::1::::<><><>0<>0<>382f65553a94866cb4800da809e9de1b<>res://.godot/imported/market_floor_tile_frame_0.png-fdcfe4649a36bad6c300fb1aba13e645.ctex::
+::res://Assets/Sprites/::1787094118
+car.png::CompressedTexture2D::1468463941290065652::1787094118::1787138114::1::::<><><>0<>0<>56b8c8faf7ce314ccec4962195d2145a<>res://.godot/imported/car.png-95e8b8760466eccf588d968327d6184b.ctex::
+car_obstacle.png::CompressedTexture2D::4501807567530190854::1787094118::1787138114::1::::<><><>0<>0<>e1b774f546235c84b8ca5b2226f98820<>res://.godot/imported/car_obstacle.png-43c71ad9d005dca361ac48e9e9c910cd.ctex::
+car_road.png::CompressedTexture2D::4016824490840960647::1787094118::1787138114::1::::<><><>0<>0<>71846e7e79b7021d9a105c0c95e28bb5<>res://.godot/imported/car_road.png-a00bc0bf8f2a3ceba9f004da1f683733.ctex::
+money.png::CompressedTexture2D::1549819779998813890::1787094118::1787138116::1::::<><><>0<>0<>9c692f8caab2e5f83fdf14b36f51a716<>res://.godot/imported/money.png-025f01df2d66388f2605cbfbaf62ad8e.ctex::
+rachel1.png::CompressedTexture2D::2098932798134673141::1787094118::1787138114::1::::<><><>0<>0<>d0fe5e034502a7cfe80c30548230f6eb<>res://.godot/imported/rachel1.png-acbb2a5e32871fea24b80aec535c0e73.ctex::
+rachel2.png::CompressedTexture2D::1801834953584250122::1787094118::1787138116::1::::<><><>0<>0<>df245de5bd5471fbafa879394750b671<>res://.godot/imported/rachel2.png-47ba10ba8387e76b538cf4b3566178f6.ctex::
+rachel3.png::CompressedTexture2D::1469604789289111218::1787094118::1787138116::1::::<><><>0<>0<>eef4de4ab92d9888c2cbe7a2b4064b8a<>res://.godot/imported/rachel3.png-d65a34f6272b10171d7897bac7b2013e.ctex::
+richard1.png::CompressedTexture2D::8470213270075633639::1787094118::1787138116::1::::<><><>0<>0<>29f3c7e662949ddba3ee1408c35dd2f7<>res://.godot/imported/richard1.png-ea6599e5e54172fd996ce203bd4a4a6e.ctex::
+richard2.png::CompressedTexture2D::3485344033702390922::1787094118::1787138116::1::::<><><>0<>0<>61123ee5f09f6c54b7e211dbdd451bb7<>res://.godot/imported/richard2.png-08fe035ea651b614625a57c4647d478a.ctex::
+richard3.png::CompressedTexture2D::2300711063027204706::1787094118::1787138118::1::::<><><>0<>0<>9583160619bdf9b1df80ac4935de8eb6<>res://.godot/imported/richard3.png-7959ba812dc5d9ae98da944e202b9b9c.ctex::
+road.png::CompressedTexture2D::7984338099480697582::1787094118::1787138116::1::::<><><>0<>0<>58768f0be0afd91ef51ad66680c2e64d<>res://.godot/imported/road.png-be82e402a88257383b2db940e55728b9.ctex::
+sarah1.png::CompressedTexture2D::792959211655734907::1787094118::1787138116::1::::<><><>0<>0<>51f9b2bf7743fb61be7af2c5d0107ca9<>res://.godot/imported/sarah1.png-7b8bc4ee31e3c044c340d80ba0316509.ctex::
+sarah2.png::CompressedTexture2D::562507164801583647::1787094118::1787138118::1::::<><><>0<>0<>081a1e18f39e825b0b53173f122b945b<>res://.godot/imported/sarah2.png-a295bd2c22ccb57c236e7ffcf1c17838.ctex::
+sarah3.png::CompressedTexture2D::3115585996563010945::1787094118::1787138126::1::::<><><>0<>0<>9bdaa670ef5f4bc61dd322aa2418649b<>res://.godot/imported/sarah3.png-f48dbad2b052d02065553ecfa71ae359.ctex::
+sarah3walk1.png::CompressedTexture2D::9186434754835161779::1787094118::1787138128::1::::<><><>0<>0<>285b995566a55270bde3554d6ef2aa4d<>res://.godot/imported/sarah3walk1.png-30ddc333852c1225b94eded67c25e0f9.ctex::
+sarah3walk3.png::CompressedTexture2D::3196227575702128132::1787094118::1787138128::1::::<><><>0<>0<>a8e06935473bef98787cd7f8c47bc168<>res://.godot/imported/sarah3walk3.png-bf75b1282aaff7a2ae22ab38665b5de3.ctex::
+shield-icon-gold-and-green-color-32x32-32x32-pixel-art-eaaa.png::CompressedTexture2D::1741682737087410480::1787094118::1787138102::1::::<><><>0<>0<>f09dfaeb101c1cfb985b856c44660da4<>res://.godot/imported/shield-icon-gold-and-green-color-32x32-32x32-pixel-art-eaaa.png-a9c42814f372fe2cea74a741b9452afc.ctex::
+star.png::CompressedTexture2D::7543636262425640264::1787094118::1787138102::1::::<><><>0<>0<>1198cea097778ecd02eb2136850dfec2<>res://.godot/imported/star.png-706fc427419221d7af10906eba10a7a7.ctex::
+::res://Scenes/::1787094118
+falling_game.tscn::PackedScene::3882692525373865408::1787094118::0::1::::<><><>0<>0<><>::uid://cwpxvs8a23adu::::res://Scripts/falling_game.gd<>uid://rgnj1xvk7k04::::res://Scripts/player_basket.gd<>uid://dkockpr8xy87s::::res://Assets/Font/Pix32.ttf<>uid://bknhimtqu1dbd::::res://Assets/Sprites/sarah3.png<>uid://d348idopx3fhb::::res://Assets/Sprites/sarah3walk1.png<>uid://bqcpakaxjmas6::::res://Assets/market3.png<>uid://blsjnv1wfkjwu::::res://Assets/Sprites/sarah3walk3.png
+falling_item.tscn::PackedScene::9075593257266803610::1787094118::0::1::::<><><>0<>0<><>::uid://0y81bigd7g8t::::res://Scripts/falling_item.gd
+intro.tscn::PackedScene::9023868392850772216::1787094118::0::1::::<><><>0<>0<><>::uid://bno5nekd84pno::::res://Scripts/intro.gd<>uid://bbhwanq1gjpex::::res://Assets/intro.png<>uid://bknhimtqu1dbd::::res://Assets/Sprites/sarah3.png<>uid://71qm0t0q5hla::::res://Assets/Sprites/richard3.png<>uid://u65f8wdfvxhq::::res://Assets/Sprites/rachel3.png
+market1.tscn::PackedScene::811909947453603122::1787094118::0::1::::<><><>0<>0<><>::uid://dyod78tdgi3aj::::res://Scripts/market_1.gd<>uid://c6ek4wy8887vd::::res://Assets/market2.png<>uid://djiev1ntkya4t::::res://Scripts/market_player.gd<>uid://dvoxqd625sk0k::::res://Assets/generated/market_floor_tile.png<>uid://8lm7yvawe012::::res://Assets/icon.svg<>uid://cwc266onrt6bg::::res://Scripts/market_item.gd<>uid://d1s5cyu8xaya8::::res://Scripts/market_enemy.gd<>uid://wc0km8jvbclm::::res://Assets/Sprites/money.png<>uid://bknhimtqu1dbd::::res://Assets/Sprites/sarah3.png<>uid://d348idopx3fhb::::res://Assets/Sprites/sarah3walk1.png<>uid://blsjnv1wfkjwu::::res://Assets/Sprites/sarah3walk3.png
+menu.tscn::PackedScene::6632836126340466760::1787094118::0::1::::<><><>0<>0<><>::uid://ca1tsxs3oynav::::res://Scripts/menu.gd
+player_car.tscn::PackedScene::4675373428252494272::1787094118::0::1::::<><><>0<>0<><>::uid://dlosy0sn1oalm::::res://Scripts/player_car.gd<>uid://u6lne4wpao3u::::res://Assets/Sprites/car.png
+road.tscn::PackedScene::2027497696120750660::1787094118::0::1::::<><><>0<>0<><>::uid://b6qoxi2pnjg2c::::res://Scripts/road.gd<>uid://3x86ke8afnc4::::res://Assets/road2.png<>uid://bxh1ropir56vb::::res://Assets/Sprites/car_road.png
+road_game.tscn::PackedScene::1719290641784762378::1787094118::0::1::::<><><>0<>0<><>::uid://4e4pj3nauy0u::::res://Scripts/road_game.gd<>uid://b7u1yngcye7km::::res://Scenes/player_car.tscn<>uid://dl0w48tbaehgg::::res://Assets/Sprites/road.png<>uid://clje68vok7nry::::res://Scripts/parallax_background.gd
+road_item.tscn::PackedScene::8143698589450482470::1787094118::0::1::::<><><>0<>0<><>::uid://c81uwkh1xgylw::::res://Scripts/road_item.gd<>uid://dfqgt7xraidtw::::res://Assets/Sprites/star.png
+road_obstacle.tscn::PackedScene::1145164631297269050::1787094118::0::1::::<><><>0<>0<><>::uid://rbx2dj3ba2g3::::res://Scripts/road_obstacle.gd<>uid://b5eyd3saiuh3s::::res://Assets/Sprites/car_obstacle.png
+road_power_up.tscn::PackedScene::2201040767858688230::1787094118::0::1::::<><><>0<>0<><>::uid://s1ybxjhrc30d::::res://Scripts/road_power_up.gd<>uid://y2xi32tcrmm7::::res://Assets/Sprites/shield-icon-gold-and-green-color-32x32-32x32-pixel-art-eaaa.png
+::res://Scripts/::1787094118
+apple.gd::GDScript::7033333810426027297::1787094118::0::1::::<>TextureRect<><>0<>0<><>::
+eggs.gd::GDScript::1136437408581319329::1787094118::0::1::::<>TextureRect<><>0<>0<><>::
+falling_game.gd::GDScript::6349396582675472714::1787094118::0::1::::FallingGame<>Node2D<><>0<>0<><>::
+falling_item.gd::GDScript::1806316313610737661::1787094118::0::1::::FallingItem<>Area2D<><>0<>0<><>::
+game_state.gd::GDScript::1542104335388746238::1787094118::0::1::::<>Node<><>0<>0<><>::
+intro.gd::GDScript::3329621890371124188::1787094118::0::1::::<>Node2D<><>0<>0<><>::
+list.gd::GDScript::2428403278411839159::1787094118::0::1::::<>ColorRect<><>0<>0<><>::
+market_1.gd::GDScript::8872936646098683065::1787094118::0::1::::<>Node2D<><>0<>0<><>::
+market_enemy.gd::GDScript::9023157159598649105::1787094118::0::1::::MarketEnemy<>CharacterBody2D<><>0<>0<><>::
+market_item.gd::GDScript::6322821051812057580::1787094118::0::1::::MarketItem<>Area2D<><>0<>0<><>::
+market_player.gd::GDScript::7807758422064283373::1787094118::0::1::::MarketPlayer<>CharacterBody2D<><>0<>0<><>::
+menu.gd::GDScript::4827702193279998953::1787094118::0::1::::<>Node2D<><>0<>0<><>::
+milk.gd::GDScript::1059414585587750928::1787094118::0::1::::<>TextureRect<><>0<>0<><>::
+parallax_background.gd::GDScript::5563798041135394094::1787094118::0::1::::<>ParallaxBackground<><>0<>0<><>::
+player_basket.gd::GDScript::1206403403528400023::1787094118::0::1::::PlayerBasket<>CharacterBody2D<><>0<>0<><>::
+player_car.gd::GDScript::7961377726094199090::1787094118::0::1::::<>CharacterBody2D<><>0<>0<><>::
+road.gd::GDScript::4596196454291390184::1787094118::0::1::::<>Node2D<><>0<>0<><>::
+road_game.gd::GDScript::2045522072774129286::1787094118::0::1::::<>Node2D<><>0<>0<><>::
+road_item.gd::GDScript::7144001193627515020::1787094118::0::1::::<>Area2D<><>0<>0<><>::
+road_obstacle.gd::GDScript::1196719599616520996::1787094118::0::1::::<>Area2D<><>0<>0<><>::
+road_power_up.gd::GDScript::1318533222991607685::1787094118::0::1::::<>Area2D<><>0<>0<><>::
+scene_transition.gd::GDScript::9065736076330848781::1787094118::0::1::::<>Node<><>0<>0<><>::
+steak.gd::GDScript::404965472515217320::1787094118::0::1::::<>TextureRect<><>0<>0<><>::

@@ -1,12 +1,13 @@
 extends Node2D
 
-@onready var money_label: Label = $UI/MoneyLabel
-@onready var hp_label: Label = $UI/HPLabel
-@onready var win_label: Label = $UI/WinLabel
-@onready var death_label: Label = $UI/DeathLabel
-@onready var blocker: ColorRect = $UI/Blocker
+@onready var money_label: Label = $CanvasLayer/UI/MoneyLabel
+@onready var hp_label: Label = $CanvasLayer/UI/HPLabel
+@onready var win_label: Label = $CanvasLayer/UI/WinLabel
+@onready var death_label: Label = $CanvasLayer/UI/DeathLabel
+@onready var blocker: ColorRect = $CanvasLayer/UI/Blocker
+@onready var money_array: Node = $Money
 
-const MONEY_TARGET: int = 8
+const MONEY_TARGET: int = 9
 
 var money: int = 0
 var dead: bool = false
