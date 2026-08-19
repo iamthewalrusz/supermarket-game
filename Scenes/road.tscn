@@ -1,9 +1,22 @@
 [gd_scene format=3 uid="uid://35eudaey1awi"]
 
-[ext_resource type="Script" uid="uid://b6qoxi2pnjg2c" path="res://Scripts/road.gd" id="1_b51y2"]
-[ext_resource type="Texture2D" uid="uid://o62cbpbj7ba4" path="res://Assets/road.png" id="2_wtjdh"]
+[ext_resource type="Script" uid="uid://b6qoxi2pnjg2c" path="res://Scripts/road.gd" id="1_road"]
+[ext_resource type="Texture2D" uid="uid://3x86ke8afnc4" path="res://Assets/road2.png" id="2_road"]
+[ext_resource type="Texture2D" uid="uid://bxh1ropir56vb" path="res://Assets/Sprites/car_road.png" id="3_road"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ffim"]
+[sub_resource type="RectangleShape2D" id="Rect_car"]
+size = Vector2(108, 64)
+
+[sub_resource type="RectangleShape2D" id="Rect_bank"]
+size = Vector2(276, 179)
+
+[sub_resource type="RectangleShape2D" id="Rect_market"]
+size = Vector2(281, 197)
+
+[sub_resource type="RectangleShape2D" id="Rect_petshop"]
+size = Vector2(224, 218)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_msg"]
 bg_color = Color(0.18, 0.18, 0.18, 1)
 border_width_left = 6
 border_width_top = 6
@@ -11,49 +24,83 @@ border_width_right = 6
 border_width_bottom = 6
 corner_detail = 9
 
-[node name="Road" type="Node2D" unique_id=1512344931]
-script = ExtResource("1_b51y2")
+[node name="Road" type="Node2D" unique_id=1881458990]
+script = ExtResource("1_road")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=724239933]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=698088217]
 position = Vector2(576, 325.00003)
 scale = Vector2(0.6, 0.5981482)
-texture = ExtResource("2_wtjdh")
+texture = ExtResource("2_road")
 
-[node name="BankButton" type="TextureButton" parent="." unique_id=222336923]
-offset_left = 83.0
-offset_top = 282.0
-offset_right = 359.0
-offset_bottom = 461.0
+[node name="Car" type="CharacterBody2D" parent="." unique_id=807670916]
+position = Vector2(576, 540)
 
-[node name="MarketButton" type="TextureButton" parent="." unique_id=2125813663]
-offset_left = 437.0
-offset_top = 264.0
-offset_right = 718.0
-offset_bottom = 461.0
+[node name="Sprite2D" type="Sprite2D" parent="Car" unique_id=260118111]
+texture = ExtResource("3_road")
 
-[node name="PetshopButton" type="TextureButton" parent="." unique_id=884886954]
-offset_left = 817.0
-offset_top = 246.0
-offset_right = 1041.0
-offset_bottom = 464.0
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Car" unique_id=1951116533]
+shape = SubResource("Rect_car")
 
-[node name="Blocker" type="ColorRect" parent="." unique_id=1294674205]
+[node name="BankZone" type="Area2D" parent="." unique_id=652133]
+position = Vector2(221, 371.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BankZone" unique_id=1544262669]
+shape = SubResource("Rect_bank")
+
+[node name="BankLabel" type="Label" parent="BankZone" unique_id=1304692726]
+visible = false
+offset_top = -108.0
+offset_bottom = -108.0
+theme_override_font_sizes/font_size = 28
+text = "Bank"
+horizontal_alignment = 1
+
+[node name="MarketZone" type="Area2D" parent="." unique_id=760067731]
+position = Vector2(577.5, 362.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MarketZone" unique_id=534899051]
+shape = SubResource("Rect_market")
+
+[node name="MarketLabel" type="Label" parent="MarketZone" unique_id=1024388668]
+visible = false
+offset_top = -118.0
+offset_bottom = -118.0
+theme_override_font_sizes/font_size = 28
+text = "Supermarket"
+horizontal_alignment = 1
+
+[node name="PetshopZone" type="Area2D" parent="." unique_id=1081442650]
+position = Vector2(929, 355)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PetshopZone" unique_id=1428567325]
+shape = SubResource("Rect_petshop")
+
+[node name="PetshopLabel" type="Label" parent="PetshopZone" unique_id=660073839]
+visible = false
+offset_top = -128.0
+offset_bottom = -128.0
+theme_override_font_sizes/font_size = 28
+text = "Petshop"
+horizontal_alignment = 1
+
+[node name="Blocker" type="ColorRect" parent="." unique_id=1085930605]
+visible = false
 offset_right = 1150.0
 offset_bottom = 649.0
 color = Color(1, 1, 1, 0)
 
-[node name="MessageLabel" type="Label" parent="." unique_id=488697060]
+[node name="MessageLabel" type="Label" parent="." unique_id=1746679960]
 offset_top = 2.0
 offset_right = 1152.0
 offset_bottom = 214.0
 mouse_filter = 0
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_8ffim")
-text = "Where is the market?"
+theme_override_styles/normal = SubResource("StyleBoxFlat_msg")
+text = "Drive to the market and press Space!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="MessageLabel" unique_id=713139700]
+[node name="Label" type="Label" parent="MessageLabel" unique_id=682625122]
 layout_mode = 0
 offset_left = 1096.0
 offset_top = 162.0
@@ -64,10 +111,7 @@ text = ">>"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VoiceAudio" type="AudioStreamPlayer2D" parent="." unique_id=840869167]
+[node name="VoiceAudio" type="AudioStreamPlayer2D" parent="." unique_id=2022611256]
 panning_strength = 0.0
 
-[connection signal="pressed" from="BankButton" to="." method="_on_bank_button_pressed"]
-[connection signal="pressed" from="MarketButton" to="." method="_on_market_button_pressed"]
-[connection signal="pressed" from="PetshopButton" to="." method="_on_petshop_button_pressed"]
 [connection signal="gui_input" from="MessageLabel" to="." method="_on_message_label_gui_input"]

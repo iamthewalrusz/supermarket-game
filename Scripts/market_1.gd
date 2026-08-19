@@ -1,56 +1,78 @@
 extends Node2D
 
-@onready var list_label: Label = $UI/ListLabel
+@onready var money_label: Label = $UI/MoneyLabel
+@onready var hp_label: Label = $UI/HPLabel
 @onready var win_label: Label = $UI/WinLabel
+@onready var death_label: Label = $UI/DeathLabel
 @onready var blocker: ColorRect = $UI/Blocker
 
-var required_items: Array[String] = []
-var picked_up_items: Array[String] = []
+const MONEY_TARGET: int = 8
+
+var money: int = 0
+var dead: bool = false
 
 
 func _ready() -> void:
-	# Read the items that were chosen in FallingGame (via the shared autoload).
-	required_items = GameState.required_items.duplicate()
-	if required_items.is_empty():
-		required_items = ["Apple", "Milk", "Eggs"]
-
+	# Connect every money pickup so collecting it adds to our total.
 	for item_node in get_tree().get_nodes_in_group("market_items"):
 		var item := item_node as MarketItem
-		if item.item_name not in required_items:
-			item.queue_free()
-		else:
-			item.picked_up.connect(_on_item_picked_up)
+		item.collected.connect(_on_money_collected)
 
-	_update_list()
+	var player := get_node_or_null("Player") as MarketPlayer
+	if player:
+		player.health_changed.connect(_on_health_changed)
+		player.player_died.connect(_on_player_died)
+		_update_hp(player.health)
 
-
-func _update_list() -> void:
-	var text := "Shopping List:"
-	for name_i: String in required_items:
-		var mark := "☐"
-		if name_i in picked_up_items:
-			mark = "✓"
-		text += "\n" + mark + " " + name_i
-	list_label.text = text
+	_update_money()
 
 
-func _on_item_picked_up(item_name: String) -> void:
-	if item_name in required_items and item_name not in picked_up_items:
-		GameState.picked_up_in_market.append(item_name)
-		picked_up_items.append(item_name)
-		_update_list()
-		if picked_up_items.size() >= required_items.size():
-			_win()
+func _update_money() -> void:
+	money_label.text = "Money: %d / %d" % [money, MONEY_TARGET]
+
+
+func _update_hp(health: int) -> void:
+	var hearts := ""
+	for i in range(MarketPlayer.MAX_HEALTH):
+		hearts += "❤" if i < health else "🖤"
+	hp_label.text = hearts
+
+
+func _on_health_changed(health: int) -> void:
+	_update_hp(health)
+
+
+func _on_money_collected(amount: int) -> void:
+	money += amount
+	_update_money()
+	if money >= MONEY_TARGET:
+		_win()
 
 
 func _win() -> void:
 	win_label.visible = true
 	blocker.visible = true
+	_freeze_player()
+
+
+func _on_player_died() -> void:
+	if dead:
+		return
+	dead = true
+	death_label.visible = true
+	blocker.visible = true
+	_freeze_player()
+	# Let the player see the message, then restart the market.
+	await get_tree().create_timer(1.5).timeout
+	SceneTransition.fade_to_reload()
+
+
+func _freeze_player() -> void:
 	var player := get_node_or_null("Player") as CharacterBody2D
 	if player:
 		player.set_physics_process(false)
 
 
 func _on_blocker_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.pressed and win_label.visible:
+	if event is InputEventMouseButton and event.pressed and win_label.visible and not dead:
 		SceneTransition.fade_to("res://Scenes/falling_game.tscn")

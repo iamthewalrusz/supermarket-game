@@ -76,8 +76,8 @@ script = ExtResource("2_player")
 shape = SubResource("basket_shape")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerBasket" unique_id=477576162]
-position = Vector2(-1.1920929e-07, -4.7683716e-07)
-scale = Vector2(0.20196079, 0.20196079)
+position = Vector2(-2.8848648e-05, 9.059906e-06)
+scale = Vector2(0.061332013, 0.06133202)
 sprite_frames = SubResource("SpriteFrames_58mrp")
 animation = &"standing"
 frame_progress = 0.44169942

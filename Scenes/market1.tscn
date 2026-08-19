@@ -6,9 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://dvoxqd625sk0k" path="res://Assets/generated/market_floor_tile.png" id="3_w5f3h"]
 [ext_resource type="Texture2D" uid="uid://8lm7yvawe012" path="res://Assets/icon.svg" id="4_icon"]
 [ext_resource type="Script" uid="uid://cwc266onrt6bg" path="res://Scripts/market_item.gd" id="5_item"]
-[ext_resource type="Texture2D" uid="uid://dljoy2fma40tv" path="res://Assets/apple-fruit-cartoon-transparent-28.png" id="6_apple"]
-[ext_resource type="Texture2D" uid="uid://d31g3lvoeyxdm" path="res://Assets/milk-box-3d-rendering-isometric-icon-png.png" id="7_milk"]
-[ext_resource type="Texture2D" uid="uid://51s4qw4ygoqt" path="res://Assets/1536745806-clipart-xl.png" id="8_eggs"]
+[ext_resource type="Script" uid="uid://d1s5cyu8xaya8" path="res://Scripts/market_enemy.gd" id="9_enemy"]
+[ext_resource type="Texture2D" uid="uid://wc0km8jvbclm" path="res://Assets/Sprites/money.png" id="10_money"]
+[ext_resource type="Texture2D" uid="uid://bknhimtqu1dbd" path="res://Assets/Sprites/sarah3.png" id="11_sarah"]
+[ext_resource type="Texture2D" uid="uid://d348idopx3fhb" path="res://Assets/Sprites/sarah3walk1.png" id="12_walk1"]
+[ext_resource type="Texture2D" uid="uid://blsjnv1wfkjwu" path="res://Assets/Sprites/sarah3walk3.png" id="13_walk3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mb61u"]
 texture = ExtResource("3_w5f3h")
@@ -24,8 +26,36 @@ sources/0 = SubResource("TileSetAtlasSource_mb61u")
 [sub_resource type="RectangleShape2D" id="player_shape"]
 size = Vector2(40, 60)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_market"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_sarah")
+}],
+"loop": 1,
+"name": &"standing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_walk1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_walk3")
+}],
+"loop": 1,
+"name": &"walking",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="item_shape"]
 size = Vector2(36, 36)
+
+[sub_resource type="RectangleShape2D" id="enemy_shape"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="enemy_hitbox_shape"]
+size = Vector2(130, 90)
 
 [node name="Market1" type="Node2D" unique_id=1551403199]
 script = ExtResource("1_mkt")
@@ -43,47 +73,175 @@ tile_set = SubResource("TileSet_051im")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=638693135]
 position = Vector2(96, 500)
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("3_player")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=2008126378]
 shape = SubResource("player_shape")
 
-[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1880145382]
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("4_icon")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=1880145382]
+position = Vector2(-1.3113022e-06, -9.536743e-06)
+scale = Vector2(0.029993368, 0.029993368)
+sprite_frames = SubResource("SpriteFrames_market")
+animation = &"standing"
 
-[node name="ItemApple" type="Area2D" parent="." unique_id=181012969 groups=["market_items"]]
+[node name="Money1" type="Area2D" parent="." unique_id=440000001 groups=["market_items"]]
+position = Vector2(180, 520)
+collision_layer = 0
+script = ExtResource("5_item")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Money1" unique_id=440000002]
+shape = SubResource("item_shape")
+
+[node name="Sprite2D" type="Sprite2D" parent="Money1" unique_id=440000003]
+texture = ExtResource("10_money")
+
+[node name="Money2" type="Area2D" parent="." unique_id=440000011 groups=["market_items"]]
+position = Vector2(420, 520)
+collision_layer = 0
+script = ExtResource("5_item")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Money2" unique_id=440000012]
+shape = SubResource("item_shape")
+
+[node name="Sprite2D" type="Sprite2D" parent="Money2" unique_id=440000013]
+texture = ExtResource("10_money")
+
+[node name="Money3" type="Area2D" parent="." unique_id=440000021 groups=["market_items"]]
+position = Vector2(700, 520)
+collision_layer = 0
+script = ExtResource("5_item")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Money3" unique_id=440000022]
+shape = SubResource("item_shape")
+
+[node name="Sprite2D" type="Sprite2D" parent="Money3" unique_id=440000023]
+texture = ExtResource("10_money")
+
+[node name="Money4" type="Area2D" parent="." unique_id=440000031 groups=["market_items"]]
 position = Vector2(1000, 520)
 collision_layer = 0
 script = ExtResource("5_item")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemApple" unique_id=2105996299]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Money4" unique_id=440000032]
 shape = SubResource("item_shape")
 
-[node name="Sprite2D" type="Sprite2D" parent="ItemApple" unique_id=2094888306]
-texture = ExtResource("6_apple")
+[node name="Sprite2D" type="Sprite2D" parent="Money4" unique_id=440000033]
+texture = ExtResource("10_money")
 
-[node name="ItemMilk" type="Area2D" parent="." unique_id=1001036368 groups=["market_items"]]
-position = Vector2(560, 264)
+[node name="Money5" type="Area2D" parent="." unique_id=440000041 groups=["market_items"]]
+position = Vector2(260, 168)
 collision_layer = 0
 script = ExtResource("5_item")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemMilk" unique_id=160321593]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Money5" unique_id=440000042]
 shape = SubResource("item_shape")
 
-[node name="Sprite2D" type="Sprite2D" parent="ItemMilk" unique_id=1055622767]
-texture = ExtResource("7_milk")
+[node name="Sprite2D" type="Sprite2D" parent="Money5" unique_id=440000043]
+texture = ExtResource("10_money")
 
-[node name="ItemEggs" type="Area2D" parent="." unique_id=91759433 groups=["market_items"]]
-position = Vector2(336, 168)
+[node name="Money6" type="Area2D" parent="." unique_id=440000051 groups=["market_items"]]
+position = Vector2(200, 388)
 collision_layer = 0
 script = ExtResource("5_item")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemEggs" unique_id=1447393302]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Money6" unique_id=440000052]
 shape = SubResource("item_shape")
 
-[node name="Sprite2D" type="Sprite2D" parent="ItemEggs" unique_id=496967606]
-texture = ExtResource("8_eggs")
+[node name="Sprite2D" type="Sprite2D" parent="Money6" unique_id=440000053]
+texture = ExtResource("10_money")
+
+[node name="Money7" type="Area2D" parent="." unique_id=440000061 groups=["market_items"]]
+position = Vector2(300, 388)
+collision_layer = 0
+script = ExtResource("5_item")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Money7" unique_id=440000062]
+shape = SubResource("item_shape")
+
+[node name="Sprite2D" type="Sprite2D" parent="Money7" unique_id=440000063]
+texture = ExtResource("10_money")
+
+[node name="Money8" type="Area2D" parent="." unique_id=440000071 groups=["market_items"]]
+position = Vector2(560, 258)
+collision_layer = 0
+script = ExtResource("5_item")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Money8" unique_id=440000072]
+shape = SubResource("item_shape")
+
+[node name="Sprite2D" type="Sprite2D" parent="Money8" unique_id=440000073]
+texture = ExtResource("10_money")
+
+[node name="EnemyGround" type="CharacterBody2D" parent="." unique_id=330000001]
+position = Vector2(900, 516)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("9_enemy")
+patrol_min_x = 700.0
+patrol_max_x = 1050.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyGround" unique_id=330000002]
+shape = SubResource("enemy_shape")
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemyGround" unique_id=330000003]
+modulate = Color(1, 0.35, 0.35, 1)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_icon")
+
+[node name="Hitbox" type="Area2D" parent="EnemyGround" unique_id=330000004]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyGround/Hitbox" unique_id=330000005]
+shape = SubResource("enemy_hitbox_shape")
+
+[node name="EnemyMid" type="CharacterBody2D" parent="." unique_id=330000006]
+position = Vector2(256, 388)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("9_enemy")
+patrol_min_x = 180.0
+patrol_max_x = 330.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyMid" unique_id=330000007]
+shape = SubResource("enemy_shape")
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemyMid" unique_id=330000008]
+modulate = Color(1, 0.35, 0.35, 1)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_icon")
+
+[node name="Hitbox" type="Area2D" parent="EnemyMid" unique_id=330000009]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyMid/Hitbox" unique_id=330000010]
+shape = SubResource("enemy_hitbox_shape")
+
+[node name="EnemyHigh" type="CharacterBody2D" parent="." unique_id=330000011]
+position = Vector2(512, 258)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("9_enemy")
+patrol_min_x = 400.0
+patrol_max_x = 620.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHigh" unique_id=330000012]
+shape = SubResource("enemy_shape")
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemyHigh" unique_id=330000013]
+modulate = Color(1, 0.35, 0.35, 1)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_icon")
+
+[node name="Hitbox" type="Area2D" parent="EnemyHigh" unique_id=330000014]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHigh/Hitbox" unique_id=330000015]
+shape = SubResource("enemy_hitbox_shape")
 
 [node name="UI" type="Control" parent="." unique_id=1061456840]
 layout_mode = 3
@@ -91,17 +249,30 @@ anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="ListLabel" type="Label" parent="UI" unique_id=1658544455]
+[node name="MoneyLabel" type="Label" parent="UI" unique_id=1658544455]
 layout_mode = 0
 offset_left = 24.0
 offset_top = 16.0
 offset_right = 380.0
-offset_bottom = 150.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(1, 1, 0.4, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 26
-text = "Shopping List:"
+text = "Money: 0 / 6"
+
+[node name="HPLabel" type="Label" parent="UI" unique_id=330000016]
+layout_mode = 0
+offset_left = 900.0
+offset_top = 16.0
+offset_right = 1140.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(1, 0.35, 0.35, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 30
+text = "❤❤❤❤❤"
+horizontal_alignment = 2
 
 [node name="WinLabel" type="Label" parent="UI" unique_id=2023519097]
 visible = false
@@ -121,7 +292,32 @@ theme_override_colors/font_color = Color(0.4, 1, 0.4, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 38
-text = "You found everything!\nShopping done!\nLet's head home!"
+text = "You collected enough money!
+Shopping done!
+Let's head home!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DeathLabel" type="Label" parent="UI" unique_id=330000017]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -80.0
+offset_right = 320.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.35, 0.35, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 38
+text = "You got caught!
+Try again!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
