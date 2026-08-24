@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://djiev1ntkya4t" path="res://Scripts/market_player.gd" id="3_player"]
 [ext_resource type="Texture2D" uid="uid://dvoxqd625sk0k" path="res://Assets/generated/market_floor_tile.png" id="3_w5f3h"]
 [ext_resource type="PackedScene" uid="uid://b2fal30ydif44" path="res://Scenes/money.tscn" id="9_051im"]
+[ext_resource type="Texture2D" uid="uid://p65j5bqqarvf" path="res://Assets/supermarket_pixel_blurry.png" id="10_051im"]
 [ext_resource type="PackedScene" uid="uid://bxwn8dndgx20o" path="res://Scenes/enemy.tscn" id="10_mb61u"]
 [ext_resource type="Texture2D" uid="uid://bknhimtqu1dbd" path="res://Assets/Sprites/sarah3.png" id="11_sarah"]
 [ext_resource type="Texture2D" uid="uid://d348idopx3fhb" path="res://Assets/Sprites/sarah3walk1.png" id="12_walk1"]
@@ -66,6 +67,14 @@ collision_layer = 2
 collision_mask = 5
 script = ExtResource("3_player")
 
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=553007167]
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/Camera2D" unique_id=753511046]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("10_051im")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=2008126378]
 shape = SubResource("player_shape")
 
@@ -74,10 +83,6 @@ position = Vector2(-1.3113022e-06, -9.536743e-06)
 scale = Vector2(0.029993368, 0.029993368)
 sprite_frames = SubResource("SpriteFrames_market")
 animation = &"standing"
-
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=553007167]
-position_smoothing_enabled = true
-rotation_smoothing_enabled = true
 
 [node name="Money" type="Node" parent="." unique_id=981243200]
 
@@ -129,6 +134,7 @@ patrol_min_x = 1883.0
 patrol_max_x = 2500.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=57553052]
+visible = false
 
 [node name="UI" type="Control" parent="CanvasLayer" unique_id=1061456840]
 layout_mode = 3

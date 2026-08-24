@@ -1,9 +1,15 @@
 [gd_scene format=3 uid="uid://c1q83vjjfql4s"]
 
 [ext_resource type="Script" uid="uid://ca1tsxs3oynav" path="res://Scripts/menu.gd" id="1_1rerr"]
+[ext_resource type="Texture2D" uid="uid://blqwi0wrfkse" path="res://Assets/supermarket_pixel.png" id="2_xhh6f"]
 
 [node name="Menu" type="Node2D" unique_id=2034018986]
 script = ExtResource("1_1rerr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1389489219]
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_xhh6f")
 
 [node name="Control" type="Control" parent="." unique_id=1598822471]
 layout_mode = 3
@@ -56,6 +62,9 @@ offset_right = 282.0
 offset_bottom = -166.25
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
 theme_override_font_sizes/font_size = 59
 text = "Supermarket Quest"
 horizontal_alignment = 1

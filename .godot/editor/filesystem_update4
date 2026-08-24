@@ -1,6 +1,4 @@
 res://Scenes/market1.tscn
-res://Scripts/market_1.gd
-res://Scripts/kill_zone.gd
 res://Scripts/market_player.gd
-res://Scripts/market_enemy.gd
-res://Scenes/enemy.tscn
+res://Scenes/menu.tscn
+res://Scenes/falling_game.tscn
