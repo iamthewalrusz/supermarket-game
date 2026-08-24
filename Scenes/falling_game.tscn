@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://bvk2m4xppr3qy"]
 
 [ext_resource type="Script" uid="uid://cwpxvs8a23adu" path="res://Scripts/falling_game.gd" id="1_game"]
+[ext_resource type="Texture2D" uid="uid://bkxl0nmhjesta" path="res://Assets/market_pixel.png" id="2_0oc5l"]
 [ext_resource type="Script" uid="uid://rgnj1xvk7k04" path="res://Scripts/player_basket.gd" id="2_player"]
 [ext_resource type="FontFile" uid="uid://dkockpr8xy87s" path="res://Assets/Font/Pix32.ttf" id="4_font"]
 [ext_resource type="Texture2D" uid="uid://bknhimtqu1dbd" path="res://Assets/Sprites/sarah3.png" id="4_rjw63"]
 [ext_resource type="Texture2D" uid="uid://d348idopx3fhb" path="res://Assets/Sprites/sarah3walk1.png" id="5_0oc5l"]
-[ext_resource type="Texture2D" uid="uid://bqcpakaxjmas6" path="res://Assets/market3.png" id="5_market3"]
 [ext_resource type="Texture2D" uid="uid://blsjnv1wfkjwu" path="res://Assets/Sprites/sarah3walk3.png" id="6_s163b"]
 
 [sub_resource type="RectangleShape2D" id="basket_shape"]
@@ -58,7 +58,7 @@ script = ExtResource("1_game")
 [node name="Background" type="Sprite2D" parent="." unique_id=403542226]
 position = Vector2(576, 324)
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("5_market3")
+texture = ExtResource("2_0oc5l")
 
 [node name="Ground" type="ColorRect" parent="." unique_id=976504544]
 visible = false

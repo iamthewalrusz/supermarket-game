@@ -4,7 +4,7 @@ extends CharacterBody2D
 signal health_changed(health: int)
 signal player_died
 
-const SPEED: float = 320.0
+const SPEED: float = 260.0
 const JUMP_VELOCITY: float = -680.0
 const GRAVITY: float = 1600.0
 
