@@ -7,13 +7,17 @@ extends Node2D
 @onready var blocker: ColorRect = $CanvasLayer/UI/Blocker
 @onready var money_array: Node = $Money
 
-const MONEY_TARGET: int = 9
+# Determined automatically from the number of money pickups in the scene.
+var MONEY_TARGET: int = 0
 
 var money: int = 0
 var dead: bool = false
 
 
 func _ready() -> void:
+	# Target = number of money pickups placed in the scene.
+	MONEY_TARGET = money_array.get_child_count()
+
 	# Connect every money pickup so collecting it adds to our total.
 	for item_node in get_tree().get_nodes_in_group("market_items"):
 		var item := item_node as MarketItem
@@ -57,9 +61,18 @@ func _win() -> void:
 
 
 func _on_player_died() -> void:
+	_die_with_message("You got caught!\nTry again!")
+
+
+func _on_player_fell(_body: Node2D) -> void:
+	_die_with_message("You fell!\nTry again!")
+
+
+func _die_with_message(message: String) -> void:
 	if dead:
 		return
 	dead = true
+	death_label.text = message
 	death_label.visible = true
 	blocker.visible = true
 	_freeze_player()
