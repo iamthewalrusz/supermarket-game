@@ -53,11 +53,11 @@ func _start_invulnerability() -> void:
 	invulnerable = true
 	var tween := create_tween()
 	for i in range(5):
-		tween.tween_property(self, "modulate:a", 0.3, 0.09)
-		tween.tween_property(self, "modulate:a", 1.0, 0.09)
+		tween.tween_property(anim, "modulate:a", 0.3, 0.09)
+		tween.tween_property(anim, "modulate:a", 1.0, 0.09)
 	tween.tween_callback(_end_invulnerability)
 
 
 func _end_invulnerability() -> void:
 	invulnerable = false
-	modulate = Color.WHITE
+	anim.modulate = Color.WHITE

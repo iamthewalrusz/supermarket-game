@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bxwn8dndgx20o"]
 
 [ext_resource type="Script" uid="uid://d1s5cyu8xaya8" path="res://Scripts/market_enemy.gd" id="1_1f0kj"]
-[ext_resource type="Texture2D" uid="uid://8lm7yvawe012" path="res://Assets/icon.svg" id="2_afpow"]
+[ext_resource type="Texture2D" uid="uid://jhqunc8e46d8" path="res://Assets/Sprites/wolf_flip.png" id="2_1f0kj"]
 
 [sub_resource type="RectangleShape2D" id="enemy_shape"]
 size = Vector2(40, 40)
@@ -20,9 +20,8 @@ patrol_max_x = 1050.0
 shape = SubResource("enemy_shape")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=864978398]
-modulate = Color(1, 0.35, 0.35, 1)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("2_afpow")
+scale = Vector2(0.083985776, 0.08398577)
+texture = ExtResource("2_1f0kj")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1605609719]
 collision_layer = 0

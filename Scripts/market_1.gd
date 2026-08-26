@@ -89,4 +89,4 @@ func _freeze_player() -> void:
 
 func _on_blocker_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and win_label.visible and not dead:
-		SceneTransition.fade_to("res://Scenes/falling_game.tscn")
+		SceneTransition.fade_to("res://Scenes/menu.tscn")
