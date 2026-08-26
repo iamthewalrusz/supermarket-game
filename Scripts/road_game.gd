@@ -5,7 +5,7 @@ var road_obstacle = preload("res://Scenes/road_obstacle.tscn")
 var road_power_up = preload("res://Scenes/road_power_up.tscn")
 
 var score: float = 0.0
-const WIN_SCORE: float = 500.0
+const WIN_SCORE: float = 250.0
 var game_ended: bool = false
 
 @onready var timer = $Timer

@@ -12,3 +12,13 @@ quanto o jogador finalizar o jogo, ele poderá rejogar cada minigame se desejar
 
 tela de escolher aonde ir: deixar escrito o nome de cada um em cima
 e também fazer com que você ande com o carro em vez de clicar
+
+fazer com que a quantidade de dinheiro que você precisa pegar seja definida pela
+quantidade de produtos que você pegou na cena anterior, que daqui para frente
+seja definida de forma aleatória, não 5 de cada sempre
+os produtos em si também podem ser aleatórios em vez de sempre ser ovos leite e maçãs
+
+fazer o fundo se mover junto do personagem
+
+depois do market1: no começo da cena, fazer com que o jogador tenha que escolher
+o carrinho com a quantidade certa de produtos

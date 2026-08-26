@@ -16,7 +16,7 @@ const DISTRACTOR_ITEMS: Array[Dictionary] = [
 ]
 
 const STARTING_LIVES: int = 3
-const NEEDED_PER_ITEM: int = 5
+const NEEDED_PER_ITEM: int = 3
 
 var collected_counts: Dictionary = {}
 var lives: int = STARTING_LIVES
@@ -152,7 +152,7 @@ func _all_collected() -> bool:
 func win_game() -> void:
 	game_over = true
 	spawn_timer.stop()
-	message_label.text = "Great job!\nYou caught 5 of each item on the list!\nLet's go pay at the checkout!"
+	message_label.text = "Great job!\nYou caught 5 of each item on the list!\nLet's go get some money!"
 	message_panel.visible = true
 	blocker.visible = true
 
