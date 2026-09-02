@@ -4,14 +4,14 @@ extends Node2D
 # All products the game can draw from. Each playthrough, 3 are randomly picked
 # as targets (each with a random required count 2-5); the rest are distractors.
 const PRODUCT_POOL: Array[Dictionary] = [
-	{"name": "Apple", "texture": "res://Assets/apple-fruit-cartoon-transparent-28.png", "color": "ff4444"},
-	{"name": "Milk", "texture": "res://Assets/milk-box-3d-rendering-isometric-icon-png.png", "color": "ffffff"},
-	{"name": "Eggs", "texture": "res://Assets/1536745806-clipart-xl.png", "color": "ffddaa"},
-	{"name": "Steak", "texture": "res://Assets/steak-graphic-clipart-design-free-png.png", "color": "ff6666"},
-	{"name": "Banana", "texture": "res://Assets/banana.png", "color": "ffff66"},
-	{"name": "Bread", "texture": "res://Assets/bread.png", "color": "cc9966"},
-	{"name": "Cheese", "texture": "res://Assets/cheese.png", "color": "ffaa00"},
-	{"name": "Fish", "texture": "res://Assets/fish.png", "color": "66ccff"},
+	{"name": "Apple", "price": 2.50, "texture": "res://Assets/apple-fruit-cartoon-transparent-28.png", "color": "ff4444"},
+	{"name": "Milk", "price": 3.20, "texture": "res://Assets/milk-box-3d-rendering-isometric-icon-png.png", "color": "ffffff"},
+	{"name": "Eggs", "price": 2.00, "texture": "res://Assets/1536745806-clipart-xl.png", "color": "ffddaa"},
+	{"name": "Steak", "price": 5.00, "texture": "res://Assets/steak-graphic-clipart-design-free-png.png", "color": "ff6666"},
+	{"name": "Banana", "price": 1.50, "texture": "res://Assets/banana.png", "color": "ffff66"},
+	{"name": "Bread", "price": 2.30, "texture": "res://Assets/bread.png", "color": "cc9966"},
+	{"name": "Cheese", "price": 3.50, "texture": "res://Assets/cheese.png", "color": "ffaa00"},
+	{"name": "Fish", "price": 4.20, "texture": "res://Assets/fish.png", "color": "66ccff"},
 ]
 
 const NUM_TARGETS: int = 3
@@ -174,9 +174,26 @@ func _all_collected() -> bool:
 func win_game() -> void:
 	game_over = true
 	spawn_timer.stop()
-	message_label.text = "Great job!\nYou caught everything on the list!\nLet's go get some money!"
+
+	# Record the combined price of everything the player caught so the market
+	# scene knows how much money they need to collect.
+	GameState.money_target = _compute_total_cost()
+
+	message_label.text = "Great job!\nYou caught everything on the list!\nLet's go get $%d.%02d in the market!" % [floori(GameState.money_target / 100.0), GameState.money_target % 100]
 	message_panel.visible = true
 	blocker.visible = true
+
+
+# Sums the price of every product the player caught (price x quantity caught),
+# returned in cents so decimal prices like $2.50 are handled exactly.
+func _compute_total_cost() -> int:
+	var total_cents: int = 0
+	for item: Dictionary in target_items:
+		var price_dollars: float = float(item["price"])
+		var price_cents: int = roundi(price_dollars * 100.0)
+		var count: int = int(collected_counts[item["name"]])
+		total_cents += price_cents * count
+	return total_cents
 
 
 func lose_game() -> void:

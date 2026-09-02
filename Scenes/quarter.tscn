@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://lpf7oci12tjr"]
+
+[ext_resource type="Script" uid="uid://cwc266onrt6bg" path="res://Scripts/market_item.gd" id="1_jgi06"]
+[ext_resource type="Texture2D" uid="uid://k8yhc86qpu0v" path="res://Assets/Sprites/quarter.png" id="2_m88qi"]
+
+[sub_resource type="RectangleShape2D" id="item_shape"]
+size = Vector2(52, 48)
+
+[node name="Quarter1" type="Area2D" unique_id=987654321 groups=["market_items"]]
+collision_layer = 0
+script = ExtResource("1_jgi06")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1214808305]
+position = Vector2(0, -1)
+shape = SubResource("item_shape")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1732791990]
+modulate = Color(0.9145619, 0.9290477, 0.96007913, 1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_m88qi")

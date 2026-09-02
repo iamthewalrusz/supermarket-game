@@ -7,3 +7,6 @@ extends Node
 var required_items: Array[String] = ["Apple", "Milk", "Eggs"]
 # Items already picked up in the market platformer.
 var picked_up_in_market: Array[String] = []
+# Total money (in cents) the player must collect in the market (written by
+# FallingGame as the combined price of every product they caught).
+var money_target: int = 0

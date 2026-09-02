@@ -9,7 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://bknhimtqu1dbd" path="res://Assets/Sprites/sarah3.png" id="8"]
 [ext_resource type="Texture2D" uid="uid://d348idopx3fhb" path="res://Assets/Sprites/sarah3walk1.png" id="9"]
 [ext_resource type="Texture2D" uid="uid://blsjnv1wfkjwu" path="res://Assets/Sprites/sarah3walk3.png" id="10"]
+[ext_resource type="PackedScene" uid="uid://dkncvofoyiix4" path="res://Scenes/coin.tscn" id="10_051im"]
 [ext_resource type="PackedScene" uid="uid://caih5uw0xumgg" path="res://Scenes/movingPlatform.tscn" id="11_051im"]
+[ext_resource type="PackedScene" uid="uid://lpf7oci12tjr" path="res://Scenes/quarter.tscn" id="11_o3wkg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mb61u"]
 texture = ExtResource("4")
@@ -124,9 +126,6 @@ position = Vector2(1929, 236)
 [node name="Money11" parent="Money" unique_id=1530385822 instance=ExtResource("5")]
 position = Vector2(2475, 234)
 
-[node name="Money12" parent="Money" unique_id=1950628489 instance=ExtResource("5")]
-position = Vector2(2190, 147)
-
 [node name="Money13" parent="Money" unique_id=1164589323 instance=ExtResource("5")]
 position = Vector2(2716, 261)
 
@@ -136,23 +135,14 @@ position = Vector2(2931, 259)
 [node name="Money15" parent="Money" unique_id=627873341 instance=ExtResource("5")]
 position = Vector2(3499, 258)
 
-[node name="Money16" parent="Money" unique_id=516563383 instance=ExtResource("5")]
-position = Vector2(3284, 253)
+[node name="Coin1" parent="Money" unique_id=1764864607 instance=ExtResource("10_051im")]
+position = Vector2(-515, 197)
 
-[node name="Money17" parent="Money" unique_id=327330439 instance=ExtResource("5")]
-position = Vector2(-130, 3)
+[node name="Quarter1" parent="Money" unique_id=987654321 instance=ExtResource("11_o3wkg")]
+position = Vector2(428, 261)
 
-[node name="Money18" parent="Money" unique_id=152534160 instance=ExtResource("5")]
-position = Vector2(-237, -73)
-
-[node name="Money19" parent="Money" unique_id=113976076 instance=ExtResource("5")]
-position = Vector2(-351, -45)
-
-[node name="Money20" parent="Money" unique_id=865597704 instance=ExtResource("5")]
-position = Vector2(-417, 32)
-
-[node name="Money21" parent="Money" unique_id=372185922 instance=ExtResource("5")]
-position = Vector2(-447, 143)
+[node name="Quarter2" parent="Money" unique_id=502749781 instance=ExtResource("11_o3wkg")]
+position = Vector2(78, 72)
 
 [node name="Enemies" type="Node" parent="." unique_id=530486999]
 
@@ -177,6 +167,7 @@ patrol_max_x = 2500.0
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=57553052]
 
 [node name="UI" type="Control" parent="CanvasLayer" unique_id=1061456840]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
