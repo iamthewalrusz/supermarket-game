@@ -1,0 +1,70 @@
+[gd_scene format=4 uid="uid://b0muf8oedfolh"]
+
+[ext_resource type="Texture2D" uid="uid://dvoxqd625sk0k" path="res://Assets/generated/market_floor_tile.png" id="1_lty22"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_av4gc"]
+texture = ExtResource("1_lty22")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_j25r2"]
+sources/0 = SubResource("TileSetAtlasSource_av4gc")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j25r2"]
+size = Vector2(176, 32)
+
+[sub_resource type="Animation" id="Animation_cecly"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_o6ags"]
+resource_name = "move"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.4666667, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 300), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_av4gc"]
+_data = {
+&"RESET": SubResource("Animation_cecly"),
+&"move": SubResource("Animation_o6ags")
+}
+
+[node name="MovingPlatformUp" type="Node2D" unique_id=1226321147]
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=154447628]
+
+[node name="Tile" type="TileMapLayer" parent="AnimatableBody2D" unique_id=311375967]
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAFAAEAAAAAAAAAAAAJAAEAAAAAAAAAAAAKAAEAAAAAAAAAAAAKAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_j25r2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=80730859]
+position = Vector2(88, 16)
+shape = SubResource("RectangleShape2D_j25r2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D" unique_id=1120872478]
+libraries/ = SubResource("AnimationLibrary_av4gc")
+autoplay = &"move"

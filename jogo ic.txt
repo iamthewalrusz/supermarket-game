@@ -22,3 +22,8 @@ fazer o fundo se mover junto do personagem
 
 depois do market1: no começo da cena, fazer com que o jogador tenha que escolher
 o carrinho com a quantidade certa de produtos
+
+02/09
+market1: antes da cena de fato começar, mostrar uma tabela mostrando o quanto que o jogador
+precisa pegar, e o quanto que cada tipo de moeda vale
+fazer um fundo de verdade

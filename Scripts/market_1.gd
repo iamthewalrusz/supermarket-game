@@ -23,6 +23,7 @@ var MONEY_TARGET: int = 0
 const MONEY_VALUE_CENTS: int = 100
 const COIN_VALUE_CENTS: int = 50
 const QUARTER_VALUE_CENTS: int = 25
+const DIME_VALUE_CENTS: int = 10
 
 var money: int = 0
 var dead: bool = false
@@ -55,6 +56,8 @@ func _ready() -> void:
 # Returns how many cents this pickup is worth. Coins are $0.50, everything
 # else is a $1 bill.
 func _pickup_value_cents(item: MarketItem) -> int:
+	if item.scene_file_path.ends_with("dime.tscn"):
+		return DIME_VALUE_CENTS
 	if item.scene_file_path.ends_with("quarter.tscn"):
 		return QUARTER_VALUE_CENTS
 	if item.scene_file_path.ends_with("coin.tscn"):
@@ -153,7 +156,7 @@ func _win() -> void:
 
 # Collecting more money than needed gets the player called out and restarts.
 func _call_out() -> void:
-	_die_with_message("You grabbed too much money!\nThe cashier called you out!\nTry again!")
+	_die_with_message("You grabbed too much money!\nTry again!")
 
 
 func _on_player_died() -> void:

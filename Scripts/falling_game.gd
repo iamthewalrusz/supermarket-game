@@ -4,14 +4,14 @@ extends Node2D
 # All products the game can draw from. Each playthrough, 3 are randomly picked
 # as targets (each with a random required count 2-5); the rest are distractors.
 const PRODUCT_POOL: Array[Dictionary] = [
-	{"name": "Apple", "price": 2.50, "texture": "res://Assets/apple-fruit-cartoon-transparent-28.png", "color": "ff4444"},
-	{"name": "Milk", "price": 3.20, "texture": "res://Assets/milk-box-3d-rendering-isometric-icon-png.png", "color": "ffffff"},
+	{"name": "Apple", "price": 1.50, "texture": "res://Assets/apple-fruit-cartoon-transparent-28.png", "color": "ff4444"},
+	{"name": "Milk", "price": 2.20, "texture": "res://Assets/milk-box-3d-rendering-isometric-icon-png.png", "color": "ffffff"},
 	{"name": "Eggs", "price": 2.00, "texture": "res://Assets/1536745806-clipart-xl.png", "color": "ffddaa"},
 	{"name": "Steak", "price": 5.00, "texture": "res://Assets/steak-graphic-clipart-design-free-png.png", "color": "ff6666"},
 	{"name": "Banana", "price": 1.50, "texture": "res://Assets/banana.png", "color": "ffff66"},
 	{"name": "Bread", "price": 2.30, "texture": "res://Assets/bread.png", "color": "cc9966"},
 	{"name": "Cheese", "price": 3.50, "texture": "res://Assets/cheese.png", "color": "ffaa00"},
-	{"name": "Fish", "price": 4.20, "texture": "res://Assets/fish.png", "color": "66ccff"},
+	{"name": "Fish", "price": 3.20, "texture": "res://Assets/fish.png", "color": "66ccff"},
 ]
 
 const NUM_TARGETS: int = 3

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dyod78tdgi3aj" path="res://Scripts/market_1.gd" id="1"]
 [ext_resource type="Script" uid="uid://djiev1ntkya4t" path="res://Scripts/market_player.gd" id="3"]
 [ext_resource type="Texture2D" uid="uid://dvoxqd625sk0k" path="res://Assets/generated/market_floor_tile.png" id="4"]
+[ext_resource type="PackedScene" uid="uid://b0muf8oedfolh" path="res://Scenes/movingPlatformUp.tscn" id="4_g7dgi"]
 [ext_resource type="PackedScene" uid="uid://b2fal30ydif44" path="res://Scenes/money.tscn" id="5"]
 [ext_resource type="Texture2D" uid="uid://p65j5bqqarvf" path="res://Assets/supermarket_pixel_blurry.png" id="6"]
 [ext_resource type="PackedScene" uid="uid://bxwn8dndgx20o" path="res://Scenes/enemy.tscn" id="7"]
@@ -12,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dkncvofoyiix4" path="res://Scenes/coin.tscn" id="10_051im"]
 [ext_resource type="PackedScene" uid="uid://caih5uw0xumgg" path="res://Scenes/movingPlatform.tscn" id="11_051im"]
 [ext_resource type="PackedScene" uid="uid://lpf7oci12tjr" path="res://Scenes/quarter.tscn" id="11_o3wkg"]
+[ext_resource type="PackedScene" uid="uid://citc15qiccvs2" path="res://Scenes/dime.tscn" id="12_rbe44"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mb61u"]
 texture = ExtResource("4")
@@ -50,7 +52,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1xwnf"]
-size = Vector2(4193.5, 20)
+size = Vector2(5468, 20)
 
 [node name="Market1" type="Node2D" unique_id=1551403199]
 script = ExtResource("1")
@@ -66,6 +68,16 @@ position = Vector2(2622, 287)
 
 [node name="MovingPlatform2" parent="MovingPlatforms" unique_id=679334509 instance=ExtResource("11_051im")]
 position = Vector2(3588, 312)
+rotation = -3.1415927
+
+[node name="MovingPlatform3" parent="MovingPlatforms" unique_id=1866421653 instance=ExtResource("11_051im")]
+position = Vector2(-551, 623)
+
+[node name="MovingPlatformUp" parent="MovingPlatforms" unique_id=958526724 instance=ExtResource("4_g7dgi")]
+position = Vector2(-731, 312)
+
+[node name="MovingPlatformUp2" parent="MovingPlatforms" unique_id=15566603 instance=ExtResource("4_g7dgi")]
+position = Vector2(-65, 653)
 rotation = -3.1415927
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=638693135]
@@ -111,6 +123,12 @@ position = Vector2(621, 264)
 [node name="Money6" parent="Money" unique_id=1765527325 instance=ExtResource("5")]
 position = Vector2(259, 168)
 
+[node name="Money12" parent="Money" unique_id=275792158 instance=ExtResource("5")]
+position = Vector2(-115, 153)
+
+[node name="Money16" parent="Money" unique_id=1319135612 instance=ExtResource("5")]
+position = Vector2(-635, 564)
+
 [node name="Money7" parent="Money" unique_id=1973148414 instance=ExtResource("5")]
 position = Vector2(1346, 494)
 
@@ -130,19 +148,37 @@ position = Vector2(2475, 234)
 position = Vector2(2716, 261)
 
 [node name="Money14" parent="Money" unique_id=1447208046 instance=ExtResource("5")]
-position = Vector2(2931, 259)
+position = Vector2(3013, 259)
 
 [node name="Money15" parent="Money" unique_id=627873341 instance=ExtResource("5")]
 position = Vector2(3499, 258)
 
 [node name="Coin1" parent="Money" unique_id=1764864607 instance=ExtResource("10_051im")]
-position = Vector2(-515, 197)
+position = Vector2(-512, 200)
+
+[node name="Coin2" parent="Money" unique_id=603516845 instance=ExtResource("10_051im")]
+position = Vector2(-114, 272)
+
+[node name="Coin3" parent="Money" unique_id=1459047529 instance=ExtResource("10_051im")]
+position = Vector2(-114, 456)
 
 [node name="Quarter1" parent="Money" unique_id=987654321 instance=ExtResource("11_o3wkg")]
 position = Vector2(428, 261)
 
 [node name="Quarter2" parent="Money" unique_id=502749781 instance=ExtResource("11_o3wkg")]
 position = Vector2(78, 72)
+
+[node name="Quarter3" parent="Money" unique_id=1339884987 instance=ExtResource("11_o3wkg")]
+position = Vector2(-323, 103)
+
+[node name="Dime1" parent="Money" unique_id=1026669961 instance=ExtResource("12_rbe44")]
+position = Vector2(1078, 518)
+
+[node name="Dime2" parent="Money" unique_id=905071852 instance=ExtResource("12_rbe44")]
+position = Vector2(794, 517)
+
+[node name="Dime3" parent="Money" unique_id=951425635 instance=ExtResource("12_rbe44")]
+position = Vector2(-126, 7)
 
 [node name="Enemies" type="Node" parent="." unique_id=530486999]
 
@@ -167,7 +203,6 @@ patrol_max_x = 2500.0
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=57553052]
 
 [node name="UI" type="Control" parent="CanvasLayer" unique_id=1061456840]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
@@ -258,7 +293,7 @@ color = Color(0, 0, 0, 0.4)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1342955641]
-position = Vector2(2078.25, 675)
+position = Vector2(1441, 675)
 shape = SubResource("RectangleShape2D_1xwnf")
 
 [connection signal="gui_input" from="CanvasLayer/UI/Blocker" to="." method="_on_blocker_gui_input"]
