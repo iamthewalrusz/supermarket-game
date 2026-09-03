@@ -51,6 +51,13 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="popup_style"]
+bg_color = Color(0.1, 0.1, 0.15, 0.96)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1xwnf"]
 size = Vector2(5468, 20)
 
@@ -289,6 +296,58 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.4)
 
+[node name="ValuePopup" type="Panel" parent="CanvasLayer/UI" unique_id=876543219]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -195.0
+offset_right = 300.0
+offset_bottom = 195.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("popup_style")
+
+[node name="Content" type="VBoxContainer" parent="CanvasLayer/UI/ValuePopup" unique_id=876543224]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+
+[node name="ValueTitle" type="Label" parent="CanvasLayer/UI/ValuePopup/Content" unique_id=876543220]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.95, 0.4, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
+text = "How much is each worth?"
+horizontal_alignment = 1
+
+[node name="Rows" type="VBoxContainer" parent="CanvasLayer/UI/ValuePopup/Content" unique_id=876543221]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="ContinueHint" type="Label" parent="CanvasLayer/UI/ValuePopup/Content" unique_id=876543222]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "Press any key or click to continue"
+horizontal_alignment = 1
+
 [node name="Killzone" type="Area2D" parent="." unique_id=1895206066]
 collision_mask = 2
 
@@ -297,4 +356,5 @@ position = Vector2(1441, 675)
 shape = SubResource("RectangleShape2D_1xwnf")
 
 [connection signal="gui_input" from="CanvasLayer/UI/Blocker" to="." method="_on_blocker_gui_input"]
+[connection signal="gui_input" from="CanvasLayer/UI/ValuePopup" to="." method="_on_value_popup_gui_input"]
 [connection signal="body_entered" from="Killzone" to="." method="_on_player_fell"]

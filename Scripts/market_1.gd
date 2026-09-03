@@ -7,6 +7,8 @@ extends Node2D
 @onready var blocker: ColorRect = $CanvasLayer/UI/Blocker
 @onready var money_array: Node = $Money
 @onready var parallax_bg: Sprite2D = $Player/Camera2D/Background
+@onready var value_popup: Panel = $CanvasLayer/UI/ValuePopup
+@onready var value_rows: VBoxContainer = $CanvasLayer/UI/ValuePopup/Content/Rows
 
 # Parallax: the background scrolls at this fraction of the camera's speed (0 = static).
 const BG_PARALLAX_FACTOR: float = 0.3
@@ -52,6 +54,9 @@ func _ready() -> void:
 	_update_money()
 	_setup_parallax()
 
+	# Show the "how much is each worth?" popup at the start of the level.
+	_show_value_popup()
+
 
 # Returns how many cents this pickup is worth. Coins are $0.50, everything
 # else is a $1 bill.
@@ -90,6 +95,12 @@ func _setup_parallax() -> void:
 
 
 func _process(_delta: float) -> void:
+	# While the "how much is each worth?" popup is up, Space/Enter dismisses it.
+	if value_popup.visible:
+		if Input.is_action_just_pressed("ui_accept"):
+			_dismiss_value_popup()
+		return
+
 	# Press Space while standing on a money pickup to collect it.
 	if Input.is_action_just_pressed("ui_accept"):
 		_try_collect_nearby()
@@ -184,6 +195,79 @@ func _freeze_player() -> void:
 	var player := get_node_or_null("Player") as CharacterBody2D
 	if player:
 		player.set_physics_process(false)
+
+
+func _unfreeze_player() -> void:
+	var player := get_node_or_null("Player") as CharacterBody2D
+	if player:
+		player.set_physics_process(true)
+
+
+# Shows the "how much is each worth?" popup and pauses the player.
+func _show_value_popup() -> void:
+	_build_value_rows()
+	value_popup.visible = true
+	_freeze_player()
+
+
+func _dismiss_value_popup() -> void:
+	if not value_popup.visible:
+		return
+	value_popup.visible = false
+	_unfreeze_player()
+
+
+# Fills the popup with one row per money type, each showing its sprite and value.
+func _build_value_rows() -> void:
+	for child in value_rows.get_children():
+		child.queue_free()
+
+	var entries: Array = [
+		["res://Assets/Sprites/money.png", "%s — Dollar bill" % _format_money(MONEY_VALUE_CENTS)],
+		["res://Assets/Sprites/coin.png", "%s — Coin" % _format_money(COIN_VALUE_CENTS)],
+		["res://Assets/Sprites/quarter.png", "%s — Quarter" % _format_money(QUARTER_VALUE_CENTS)],
+		["res://Assets/Sprites/dime.png", "%s — Dime" % _format_money(DIME_VALUE_CENTS)],
+	]
+
+	for entry in entries:
+		value_rows.add_child(_make_value_row(entry[0], entry[1]))
+
+
+# Creates a single sprite + label row for the popup.
+func _make_value_row(texture_path: String, label_text: String) -> HBoxContainer:
+	var row := HBoxContainer.new()
+	row.alignment = BoxContainer.ALIGNMENT_CENTER
+	row.add_theme_constant_override("separation", 16)
+
+	var tex_rect := TextureRect.new()
+	tex_rect.texture = load(texture_path)
+	tex_rect.custom_minimum_size = Vector2(44, 44)
+	tex_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	tex_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	row.add_child(tex_rect)
+
+	var label := Label.new()
+	label.text = label_text
+	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	label.add_theme_font_size_override("font_size", 28)
+	label.add_theme_color_override("font_color", Color.WHITE)
+	label.add_theme_color_override("font_outline_color", Color.BLACK)
+	label.add_theme_constant_override("outline_size", 6)
+	row.add_child(label)
+
+	return row
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if not value_popup.visible:
+		return
+	if event is InputEventKey and event.pressed:
+		_dismiss_value_popup()
+
+
+func _on_value_popup_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		_dismiss_value_popup()
 
 
 func _on_blocker_gui_input(event: InputEvent) -> void:
