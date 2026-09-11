@@ -7,7 +7,7 @@ const PRODUCT_POOL: Array[Dictionary] = [
 	{"name": "Apple", "price": 1.50, "texture": "res://Assets/apple-fruit-cartoon-transparent-28.png", "color": "ff4444"},
 	{"name": "Milk", "price": 2.20, "texture": "res://Assets/milk-box-3d-rendering-isometric-icon-png.png", "color": "ffffff"},
 	{"name": "Eggs", "price": 2.00, "texture": "res://Assets/1536745806-clipart-xl.png", "color": "ffddaa"},
-	{"name": "Steak", "price": 5.00, "texture": "res://Assets/steak-graphic-clipart-design-free-png.png", "color": "ff6666"},
+	{"name": "Steak", "price": 4.00, "texture": "res://Assets/steak-graphic-clipart-design-free-png.png", "color": "ff6666"},
 	{"name": "Banana", "price": 1.50, "texture": "res://Assets/banana.png", "color": "ffff66"},
 	{"name": "Bread", "price": 2.30, "texture": "res://Assets/bread.png", "color": "cc9966"},
 	{"name": "Cheese", "price": 3.50, "texture": "res://Assets/cheese.png", "color": "ffaa00"},
@@ -178,6 +178,21 @@ func win_game() -> void:
 	# Record the combined price of everything the player caught so the market
 	# scene knows how much money they need to collect.
 	GameState.money_target = _compute_total_cost()
+
+	# Also record the full breakdown (product, price, count) so the checkout
+	# scene can show which cart matches what the player caught.
+	var caught_detail: Array[Dictionary] = []
+	for item: Dictionary in target_items:
+		var count: int = int(collected_counts[item["name"]])
+		if count <= 0:
+			continue
+		caught_detail.append({
+			"name": item["name"],
+			"price_cents": roundi(float(item["price"]) * 100.0),
+			"texture": item["texture"],
+			"count": count,
+		})
+	GameState.required_items_detail = caught_detail
 
 	message_label.text = "Great job!\nYou caught everything on the list!\nLet's go get $%d.%02d in the market!" % [floori(GameState.money_target / 100.0), GameState.money_target % 100]
 	message_panel.visible = true
