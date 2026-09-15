@@ -6,17 +6,8 @@ extends Node2D
 @onready var death_label: Label = $CanvasLayer/UI/DeathLabel
 @onready var blocker: ColorRect = $CanvasLayer/UI/Blocker
 @onready var money_array: Node = $Money
-@onready var parallax_bg: Sprite2D = $Player/Camera2D/Background
 @onready var value_popup: Panel = $CanvasLayer/UI/ValuePopup
 @onready var value_rows: VBoxContainer = $CanvasLayer/UI/ValuePopup/Content/Rows
-
-# Parallax: the background scrolls at this fraction of the camera's speed (0 = static).
-const BG_PARALLAX_FACTOR: float = 0.3
-# Copies of the background texture tiled horizontally so it never runs out while scrolling.
-const BG_TILE_COPIES: int = 3
-
-var _base_camera_x: float = 0.0
-var _bg_tile_width: float = 1.0
 
 # The money goal (in cents), set from the combined price of the falling-game
 # products. Tracked in cents so decimal prices (like $2.50) work exactly.
@@ -52,7 +43,6 @@ func _ready() -> void:
 		_update_hp(player.health)
 
 	_update_money()
-	_setup_parallax()
 
 	# Show the "how much is each worth?" popup at the start of the level.
 	_show_value_popup()
@@ -80,20 +70,6 @@ func _total_available_money() -> int:
 	return total
 
 
-func _setup_parallax() -> void:
-	# Use the full texture vertically (it exactly fills the screen, so no vertical
-	# tiling is needed) and repeat it horizontally so it can scroll forever.
-	if parallax_bg and parallax_bg.texture:
-		var tex_size := parallax_bg.texture.get_size()
-		_bg_tile_width = tex_size.x
-		parallax_bg.region_enabled = true
-		parallax_bg.texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
-		parallax_bg.region_rect = Rect2(0, 0, _bg_tile_width * BG_TILE_COPIES, tex_size.y)
-	var cam := $Player/Camera2D as Camera2D
-	if cam:
-		_base_camera_x = cam.global_position.x
-
-
 func _process(_delta: float) -> void:
 	# While the "how much is each worth?" popup is up, Space/Enter dismisses it.
 	if value_popup.visible:
@@ -104,16 +80,6 @@ func _process(_delta: float) -> void:
 	# Press Space while standing on a money pickup to collect it.
 	if Input.is_action_just_pressed("ui_accept"):
 		_try_collect_nearby()
-
-	var cam := $Player/Camera2D as Camera2D
-	if not cam or not parallax_bg or _bg_tile_width <= 1.0:
-		return
-	# Shift the shown texture region by a fraction of the camera's horizontal travel.
-	var travel := cam.global_position.x - _base_camera_x
-	var shift_px := travel * BG_PARALLAX_FACTOR / parallax_bg.scale.x
-	var rect := parallax_bg.region_rect
-	rect.position.x = wrapf(shift_px, 0.0, _bg_tile_width)
-	parallax_bg.region_rect = rect
 
 
 func _update_money() -> void:

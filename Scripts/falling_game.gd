@@ -7,7 +7,7 @@ const PRODUCT_POOL: Array[Dictionary] = [
 	{"name": "Apple", "price": 1.50, "texture": "res://Assets/apple-fruit-cartoon-transparent-28.png", "color": "ff4444"},
 	{"name": "Milk", "price": 2.20, "texture": "res://Assets/milk-box-3d-rendering-isometric-icon-png.png", "color": "ffffff"},
 	{"name": "Eggs", "price": 2.00, "texture": "res://Assets/1536745806-clipart-xl.png", "color": "ffddaa"},
-	{"name": "Steak", "price": 4.00, "texture": "res://Assets/steak-graphic-clipart-design-free-png.png", "color": "ff6666"},
+	{"name": "Steak", "price": 3.00, "texture": "res://Assets/steak-graphic-clipart-design-free-png.png", "color": "ff6666"},
 	{"name": "Banana", "price": 1.50, "texture": "res://Assets/banana.png", "color": "ffff66"},
 	{"name": "Bread", "price": 2.30, "texture": "res://Assets/bread.png", "color": "cc9966"},
 	{"name": "Cheese", "price": 3.50, "texture": "res://Assets/cheese.png", "color": "ffaa00"},
