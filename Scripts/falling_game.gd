@@ -2,7 +2,7 @@ class_name FallingGame
 extends Node2D
 
 # All products the game can draw from. Each playthrough, 3 are randomly picked
-# as targets (each with a random required count 2-5); the rest are distractors.
+# as targets (each with a random required count 2-4); the rest are distractors.
 const PRODUCT_POOL: Array[Dictionary] = [
 	{"name": "Apple", "price": 1.50, "texture": "res://Assets/apple-fruit-cartoon-transparent-28.png", "color": "ff4444"},
 	{"name": "Milk", "price": 2.20, "texture": "res://Assets/milk-box-3d-rendering-isometric-icon-png.png", "color": "ffffff"},
@@ -16,7 +16,7 @@ const PRODUCT_POOL: Array[Dictionary] = [
 
 const NUM_TARGETS: int = 3
 const MIN_NEEDED: int = 2
-const MAX_NEEDED: int = 5
+const MAX_NEEDED: int = 4
 
 const STARTING_LIVES: int = 3
 
@@ -225,9 +225,10 @@ func _on_spawn_timer_timeout() -> void:
 	spawn_timer.start()
 
 
-func _on_blocker_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.pressed:
-		if lives > 0:
-			SceneTransition.fade_to("res://Scenes/market1.tscn")
-		else:
-			SceneTransition.fade_to_reload()
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and blocker.visible == true:
+		if event.keycode == KEY_SPACE:
+			if lives > 0:
+				SceneTransition.fade_to("res://Scenes/market1.tscn")
+			else:
+				SceneTransition.fade_to_reload()
