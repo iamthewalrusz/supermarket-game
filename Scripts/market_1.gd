@@ -238,4 +238,5 @@ func _on_value_popup_gui_input(event: InputEvent) -> void:
 
 func _on_blocker_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and win_label.visible and not dead:
-		SceneTransition.fade_to("res://Scenes/checkout.tscn")
+		# Head into the maze; finding a way through it leads to the cashier.
+		SceneTransition.fade_to("res://Scenes/maze.tscn")

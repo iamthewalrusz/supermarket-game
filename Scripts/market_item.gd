@@ -11,6 +11,10 @@ var player_inside: bool = false
 
 const TARGET_RENDER_AREA: float = 1600.0  # ~40x40 px
 
+# Shared shader material that adds a pulsing outline + soft glow so every
+# pickup stays readable against the busy, colourful market background.
+const COLLECTIBLE_MATERIAL: ShaderMaterial = preload("res://Shaders/collectible_glow.tres")
+
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
@@ -26,6 +30,8 @@ func _ready() -> void:
 		var tex_size: Vector2 = sprite.texture.get_size()
 		var uniform_scale: float = sqrt(TARGET_RENDER_AREA / (tex_size.x * tex_size.y))
 		sprite.scale = Vector2(uniform_scale, uniform_scale)
+		# Apply the highlight shader (shared across all pickups).
+		sprite.material = COLLECTIBLE_MATERIAL
 
 
 func _on_body_entered(body: Node2D) -> void:
