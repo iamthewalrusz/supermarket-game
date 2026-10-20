@@ -165,4 +165,3 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
-[connection signal="gui_input" from="UI/Blocker" to="." method="_on_blocker_gui_input"]
