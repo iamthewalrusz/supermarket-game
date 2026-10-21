@@ -12,6 +12,7 @@ extends Node2D
 ## "Cashier" and "Goal" nodes sit. Move those nodes to relocate start and finish.
 
 @onready var player: MazePlayer = $Player
+@onready var cashier: Sprite2D = $Cashier
 @onready var message_panel: Panel = $CanvasLayer/UI/MessagePanel
 @onready var message_label: Label = $CanvasLayer/UI/MessagePanel/MessageLabel
 @onready var blocker: ColorRect = $CanvasLayer/UI/Blocker
@@ -25,6 +26,11 @@ func _ready() -> void:
 
 	message_panel.visible = false
 	blocker.visible = false
+
+	# Gently pulse the cashier so it stands out as the goal.
+	var pulse: Tween = create_tween().set_loops()
+	pulse.tween_property(cashier, "scale", Vector2(0.5, 0.5), 0.7).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	pulse.tween_property(cashier, "scale", Vector2(0.4, 0.4), 0.7).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 
 func _on_goal_entered(body: Node2D) -> void:

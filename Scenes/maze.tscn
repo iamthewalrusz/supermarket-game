@@ -1,13 +1,18 @@
-[gd_scene format=4]
+[gd_scene format=4 uid="uid://cksniudiqm7u3"]
 
-[ext_resource type="Texture2D" path="res://Assets/generated/market_floor_tile.png" id="2_5f7w8"]
-[ext_resource type="Texture2D" path="res://Assets/generated/maze_wall_brick.png" id="2_720sd"]
-[ext_resource type="Script" path="res://Scripts/maze_player.gd" id="2_player"]
-[ext_resource type="Texture2D" path="res://Assets/generated/maze_cashier.png" id="3_cashier"]
-[ext_resource type="Texture2D" path="res://Assets/Sprites/sarah3.png" id="4_stand"]
-[ext_resource type="Texture2D" path="res://Assets/Sprites/sarah3walk1.png" id="5_walk1"]
-[ext_resource type="Texture2D" path="res://Assets/Sprites/sarah3walk3.png" id="6_walk3"]
-[ext_resource type="FontFile" path="res://Assets/Font/Pix32.ttf" id="7_font"]
+[ext_resource type="Script" uid="uid://baiuuil8gc1uj" path="res://Scripts/maze_game.gd" id="1_game"]
+[ext_resource type="Texture2D" uid="uid://dkdrftjjr1nv2" path="res://Assets/generated/maze_floor_checker.png" id="2_5f7w8"]
+[ext_resource type="Script" uid="uid://b78w3g54tq3f" path="res://Scripts/maze_player.gd" id="2_player"]
+[ext_resource type="Texture2D" uid="uid://b1vaie8b0noaq" path="res://Assets/generated/maze_wall_shelf.png" id="3_5f7w8"]
+[ext_resource type="Texture2D" uid="uid://bg0qf73m7m3yn" path="res://Assets/generated/maze_cashier.png" id="3_cashier"]
+[ext_resource type="Texture2D" uid="uid://bknhimtqu1dbd" path="res://Assets/Sprites/sarah3.png" id="4_stand"]
+[ext_resource type="Texture2D" uid="uid://d348idopx3fhb" path="res://Assets/Sprites/sarah3walk1.png" id="5_walk1"]
+[ext_resource type="Texture2D" uid="uid://blsjnv1wfkjwu" path="res://Assets/Sprites/sarah3walk3.png" id="6_walk3"]
+[ext_resource type="FontFile" uid="uid://dkockpr8xy87s" path="res://Assets/Font/Pix32.ttf" id="7_font"]
+[ext_resource type="Texture2D" uid="uid://bkxl0nmhjesta" path="res://Assets/market_pixel.png" id="8_bg"]
+[ext_resource type="Texture2D" uid="uid://d0rm43e0cj1rm" path="res://Assets/generated/store_plant_pot.png" id="9_plant"]
+[ext_resource type="Texture2D" uid="uid://cabcg4ybgclcb" path="res://Assets/generated/shopping_cart_frame_0.png" id="10_cart"]
+[ext_resource type="Texture2D" uid="uid://bsxjp8dmqf23r" path="res://Assets/generated/store_pallet_stack.png" id="11_pallet"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3sfa0"]
 texture = ExtResource("2_5f7w8")
@@ -19,7 +24,7 @@ tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_3sfa0")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5f7w8"]
-texture = ExtResource("2_720sd")
+texture = ExtResource("3_5f7w8")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
@@ -57,11 +62,30 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="banner_style"]
+bg_color = Color(0.07, 0.08, 0.14, 0.92)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.45, 0.78, 1, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
 [sub_resource type="LabelSettings" id="label_large"]
 font = ExtResource("7_font")
 font_size = 30
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="hint_style"]
+bg_color = Color(0.07, 0.08, 0.14, 0.82)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="LabelSettings" id="label_small"]
 font = ExtResource("7_font")
@@ -77,11 +101,51 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
 [node name="MazeGame" type="Node2D" unique_id=2059745275]
+script = ExtResource("1_game")
 
 [node name="Background" type="ColorRect" parent="." unique_id=1829148106]
+z_index = -30
 offset_right = 1152.0
 offset_bottom = 648.0
-color = Color(0.08, 0.09, 0.13, 1)
+color = Color(0.05, 0.05, 0.09, 1)
+
+[node name="Backdrop" type="Sprite2D" parent="." unique_id=888575125]
+z_index = -25
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("8_bg")
+
+[node name="Dim" type="ColorRect" parent="." unique_id=1488563028]
+z_index = -20
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.03, 0.04, 0.08, 0.6)
+
+[node name="MazeFrame" type="ColorRect" parent="." unique_id=997387119]
+z_index = -10
+offset_left = 166.0
+offset_top = 70.0
+offset_right = 986.0
+offset_bottom = 634.0
+color = Color(0, 0, 0, 0.55)
+
+[node name="PropPlant" type="Sprite2D" parent="." unique_id=1132330833]
+z_index = -5
+position = Vector2(62, 480)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("9_plant")
+
+[node name="PropCart" type="Sprite2D" parent="." unique_id=773939826]
+z_index = -5
+position = Vector2(1092, 480)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("10_cart")
+
+[node name="PropPallet" type="Sprite2D" parent="." unique_id=441005626]
+z_index = -5
+position = Vector2(66, 230)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("11_pallet")
 
 [node name="Floor" type="TileMapLayer" parent="." unique_id=1831368568]
 position = Vector2(176, 80)
@@ -93,22 +157,48 @@ position = Vector2(176, 80)
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAPAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAARAAAAAAAAAAAAAAASAAAAAAAAAAAAAAATAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAVAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAXAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAWAAEAAAAAAAAAAAAYAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAHAAIAAAAAAAAAAAAIAAIAAAAAAAAAAAAJAAIAAAAAAAAAAAAKAAIAAAAAAAAAAAAMAAIAAAAAAAAAAAANAAIAAAAAAAAAAAAOAAIAAAAAAAAAAAAPAAIAAAAAAAAAAAAQAAIAAAAAAAAAAAARAAIAAAAAAAAAAAASAAIAAAAAAAAAAAATAAIAAAAAAAAAAAAUAAIAAAAAAAAAAAAWAAIAAAAAAAAAAAAYAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAACAAMAAAAAAAAAAAAGAAMAAAAAAAAAAAAKAAMAAAAAAAAAAAAMAAMAAAAAAAAAAAAUAAMAAAAAAAAAAAAYAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAACAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAKAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAANAAQAAAAAAAAAAAAOAAQAAAAAAAAAAAAPAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAASAAQAAAAAAAAAAAAUAAQAAAAAAAAAAAAVAAQAAAAAAAAAAAAWAAQAAAAAAAAAAAAYAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAACAAUAAAAAAAAAAAAGAAUAAAAAAAAAAAAIAAUAAAAAAAAAAAAMAAUAAAAAAAAAAAAQAAUAAAAAAAAAAAASAAUAAAAAAAAAAAAWAAUAAAAAAAAAAAAYAAUAAAAAAAAAAAAAAAYAAAAAAAAAAAACAAYAAAAAAAAAAAADAAYAAAAAAAAAAAAEAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAIAAYAAAAAAAAAAAAJAAYAAAAAAAAAAAAKAAYAAAAAAAAAAAALAAYAAAAAAAAAAAAMAAYAAAAAAAAAAAAOAAYAAAAAAAAAAAAQAAYAAAAAAAAAAAARAAYAAAAAAAAAAAASAAYAAAAAAAAAAAAUAAYAAAAAAAAAAAAWAAYAAAAAAAAAAAAYAAYAAAAAAAAAAAAAAAcAAAAAAAAAAAAGAAcAAAAAAAAAAAAMAAcAAAAAAAAAAAAOAAcAAAAAAAAAAAASAAcAAAAAAAAAAAAUAAcAAAAAAAAAAAAWAAcAAAAAAAAAAAAYAAcAAAAAAAAAAAAAAAgAAAAAAAAAAAACAAgAAAAAAAAAAAADAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAAFAAgAAAAAAAAAAAAGAAgAAAAAAAAAAAAHAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAJAAgAAAAAAAAAAAAKAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAAOAAgAAAAAAAAAAAAPAAgAAAAAAAAAAAAQAAgAAAAAAAAAAAASAAgAAAAAAAAAAAAUAAgAAAAAAAAAAAAVAAgAAAAAAAAAAAAWAAgAAAAAAAAAAAAYAAgAAAAAAAAAAAAAAAkAAAAAAAAAAAACAAkAAAAAAAAAAAAKAAkAAAAAAAAAAAAQAAkAAAAAAAAAAAASAAkAAAAAAAAAAAAYAAkAAAAAAAAAAAAAAAoAAAAAAAAAAAACAAoAAAAAAAAAAAADAAoAAAAAAAAAAAAEAAoAAAAAAAAAAAAGAAoAAAAAAAAAAAAHAAoAAAAAAAAAAAAIAAoAAAAAAAAAAAAKAAoAAAAAAAAAAAALAAoAAAAAAAAAAAAMAAoAAAAAAAAAAAANAAoAAAAAAAAAAAAOAAoAAAAAAAAAAAAPAAoAAAAAAAAAAAAQAAoAAAAAAAAAAAASAAoAAAAAAAAAAAATAAoAAAAAAAAAAAAUAAoAAAAAAAAAAAAWAAoAAAAAAAAAAAAXAAoAAAAAAAAAAAAYAAoAAAAAAAAAAAAAAAsAAAAAAAAAAAAGAAsAAAAAAAAAAAAKAAsAAAAAAAAAAAAQAAsAAAAAAAAAAAAUAAsAAAAAAAAAAAAYAAsAAAAAAAAAAAAAAAwAAAAAAAAAAAABAAwAAAAAAAAAAAACAAwAAAAAAAAAAAADAAwAAAAAAAAAAAAEAAwAAAAAAAAAAAAFAAwAAAAAAAAAAAAGAAwAAAAAAAAAAAAIAAwAAAAAAAAAAAAJAAwAAAAAAAAAAAAKAAwAAAAAAAAAAAAMAAwAAAAAAAAAAAANAAwAAAAAAAAAAAAOAAwAAAAAAAAAAAAQAAwAAAAAAAAAAAARAAwAAAAAAAAAAAASAAwAAAAAAAAAAAAUAAwAAAAAAAAAAAAVAAwAAAAAAAAAAAAWAAwAAAAAAAAAAAAXAAwAAAAAAAAAAAAYAAwAAAAAAAAAAAAAAA0AAAAAAAAAAAAIAA0AAAAAAAAAAAAOAA0AAAAAAAAAAAASAA0AAAAAAAAAAAAYAA0AAAAAAAAAAAAAAA4AAAAAAAAAAAACAA4AAAAAAAAAAAADAA4AAAAAAAAAAAAEAA4AAAAAAAAAAAAFAA4AAAAAAAAAAAAGAA4AAAAAAAAAAAAHAA4AAAAAAAAAAAAIAA4AAAAAAAAAAAAJAA4AAAAAAAAAAAAKAA4AAAAAAAAAAAALAA4AAAAAAAAAAAAMAA4AAAAAAAAAAAAOAA4AAAAAAAAAAAAPAA4AAAAAAAAAAAAQAA4AAAAAAAAAAAASAA4AAAAAAAAAAAATAA4AAAAAAAAAAAAUAA4AAAAAAAAAAAAVAA4AAAAAAAAAAAAWAA4AAAAAAAAAAAAYAA4AAAAAAAAAAAAAAA8AAAAAAAAAAAAOAA8AAAAAAAAAAAAYAA8AAAAAAAAAAAAAABAAAAAAAAAAAAABABAAAAAAAAAAAAACABAAAAAAAAAAAAADABAAAAAAAAAAAAAEABAAAAAAAAAAAAAFABAAAAAAAAAAAAAGABAAAAAAAAAAAAAHABAAAAAAAAAAAAAIABAAAAAAAAAAAAAJABAAAAAAAAAAAAAKABAAAAAAAAAAAAALABAAAAAAAAAAAAAMABAAAAAAAAAAAAANABAAAAAAAAAAAAAOABAAAAAAAAAAAAAPABAAAAAAAAAAAAAQABAAAAAAAAAAAAARABAAAAAAAAAAAAASABAAAAAAAAAAAAATABAAAAAAAAAAAAAUABAAAAAAAAAAAAAVABAAAAAAAAAAAAAWABAAAAAAAAAAAAAXABAAAAAAAAAAAAAYABAAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_3sfa0")
 
+[node name="StartSign" type="Label" parent="." unique_id=28834837]
+offset_left = 864.0
+offset_top = 57.0
+offset_right = 992.0
+offset_bottom = 93.0
+theme_override_colors/font_color = Color(0.55, 1, 0.6, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 20
+text = "START"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Cashier" type="Sprite2D" parent="." unique_id=1174241293]
 z_index = 1
-position = Vector2(928, 576)
+position = Vector2(228.79999, 128.79999)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("3_cashier")
 
 [node name="Goal" type="Area2D" parent="." unique_id=266728793]
-position = Vector2(928, 576)
+position = Vector2(228.79999, 128.79999)
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goal" unique_id=379172928]
 shape = SubResource("goal_shape")
 
+[node name="CashierSign" type="Label" parent="Goal" unique_id=1868466563]
+offset_left = -80.0
+offset_top = -66.0
+offset_right = 80.0
+offset_bottom = -30.0
+theme_override_colors/font_color = Color(1, 0.9, 0.4, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 20
+text = "CASHIER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Player" type="CharacterBody2D" parent="." unique_id=115225189]
-position = Vector2(224, 128)
+position = Vector2(928, 137)
 collision_layer = 2
 script = ExtResource("2_player")
 
@@ -130,6 +220,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TitleBanner" type="Panel" parent="CanvasLayer/UI" unique_id=663390121]
+layout_mode = 1
+offset_left = 316.0
+offset_top = 8.0
+offset_right = 836.0
+offset_bottom = 68.0
+theme_override_styles/panel = SubResource("banner_style")
+
 [node name="Title" type="Label" parent="CanvasLayer/UI" unique_id=2035219818]
 layout_mode = 1
 offset_top = 16.0
@@ -138,6 +236,14 @@ offset_bottom = 60.0
 text = "Find your way to the cashier!"
 label_settings = SubResource("label_large")
 horizontal_alignment = 1
+
+[node name="HintPanel" type="Panel" parent="CanvasLayer/UI" unique_id=1084255360]
+layout_mode = 1
+offset_left = 226.0
+offset_top = 610.0
+offset_right = 926.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("hint_style")
 
 [node name="Hint" type="Label" parent="CanvasLayer/UI" unique_id=1842018523]
 layout_mode = 1
