@@ -27,3 +27,10 @@ o carrinho com a quantidade certa de produtos
 market1: antes da cena de fato começar, mostrar uma tabela mostrando o quanto que o jogador
 precisa pegar, e o quanto que cada tipo de moeda vale
 fazer um fundo de verdade
+
+21/10
+maze: fazer com que o labirinto revele ao decorrer que você passe por ele
+fazer também com que tenha inimigos em cantos que não levam ao destino final
+não esquecer de mandar vídeo no grupo mostrando o jogo inteiro
+ver sobre o slide do jecet
+começar o relatório final

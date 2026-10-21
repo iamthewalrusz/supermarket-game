@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://d0rm43e0cj1rm" path="res://Assets/generated/store_plant_pot.png" id="9_plant"]
 [ext_resource type="Texture2D" uid="uid://cabcg4ybgclcb" path="res://Assets/generated/shopping_cart_frame_0.png" id="10_cart"]
 [ext_resource type="Texture2D" uid="uid://bsxjp8dmqf23r" path="res://Assets/generated/store_pallet_stack.png" id="11_pallet"]
+[ext_resource type="PackedScene" uid="uid://dkhx4veynb7v1" path="res://Scenes/maze_enemy.tscn" id="13_fg2sw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3sfa0"]
 texture = ExtResource("2_5f7w8")
@@ -210,6 +211,23 @@ scale = Vector2(0.02, 0.02)
 sprite_frames = SubResource("player_frames")
 animation = &"standing"
 
+[node name="Node" type="Node" parent="." unique_id=1558091093]
+
+[node name="MazeEnemy1" parent="Node" unique_id=270584028 instance=ExtResource("13_fg2sw")]
+position = Vector2(416, 127)
+
+[node name="MazeEnemy2" parent="Node" unique_id=1209308405 instance=ExtResource("13_fg2sw")]
+position = Vector2(864, 319)
+
+[node name="MazeEnemy3" parent="Node" unique_id=1610024271 instance=ExtResource("13_fg2sw")]
+position = Vector2(608, 191)
+
+[node name="MazeEnemy4" parent="Node" unique_id=28379330 instance=ExtResource("13_fg2sw")]
+position = Vector2(672, 383)
+
+[node name="MazeEnemy5" parent="Node" unique_id=592885764 instance=ExtResource("13_fg2sw")]
+position = Vector2(224, 191)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=77248957]
 
 [node name="UI" type="Control" parent="CanvasLayer" unique_id=548410679]
@@ -250,7 +268,7 @@ layout_mode = 1
 offset_top = 616.0
 offset_right = 1152.0
 offset_bottom = 648.0
-text = "Arrow keys / WASD  to move  •  reach the CASHIER to pay"
+text = "Arrow keys to move  •  reach the CASHIER to pay"
 label_settings = SubResource("label_small")
 horizontal_alignment = 1
 

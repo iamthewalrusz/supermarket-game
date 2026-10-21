@@ -42,9 +42,9 @@ func _on_goal_entered(body: Node2D) -> void:
 	message_panel.visible = true
 	blocker.visible = true
 	await get_tree().create_timer(2.2).timeout
-	SceneTransition.fade_to("res://Scenes/checkout.tscn")
+	SceneTransition.fade_to("res://Scenes/ending.tscn")
 
 
 func _on_blocker_gui_input(event: InputEvent) -> void:
 	if _won and event is InputEventMouseButton and event.pressed:
-		SceneTransition.fade_to("res://Scenes/checkout.tscn")
+		SceneTransition.fade_to("res://Scenes/ending.tscn")

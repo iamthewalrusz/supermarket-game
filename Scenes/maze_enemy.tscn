@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dkhx4veynb7v1"]
+
+[ext_resource type="Texture2D" uid="uid://bab6edtdobkre" path="res://Assets/Sprites/wolf.png" id="1_rf6am"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8exmi"]
+size = Vector2(32, 32)
+
+[node name="MazeEnemy" type="CharacterBody2D" unique_id=270584028]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1657415355]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_8exmi")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=469452630]
+position = Vector2(0, 0.9843744)
+scale = Vector2(0.04513638, 0.056883898)
+texture = ExtResource("1_rf6am")
