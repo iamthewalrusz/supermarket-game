@@ -372,4 +372,4 @@ func _show_result(text: String) -> void:
 	result_label.text = text
 	result_panel.visible = true
 	await get_tree().create_timer(2.2).timeout
-	SceneTransition.fade_to("res://Scenes/menu.tscn")
+	SceneTransition.fade_to("res://Scenes/maze.tscn")

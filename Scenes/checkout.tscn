@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c8n7q2mktcart"]
 
-[ext_resource type="Script" path="res://Scripts/checkout.gd" id="1_checkout"]
-[ext_resource type="Texture2D" path="res://Assets/market_pixel.png" id="2_bg"]
+[ext_resource type="Script" uid="uid://dw2h0kcomieck" path="res://Scripts/checkout.gd" id="1_checkout"]
+[ext_resource type="Texture2D" uid="uid://bkxl0nmhjesta" path="res://Assets/market_pixel.png" id="2_bg"]
 
 [sub_resource type="StyleBoxFlat" id="panel_style"]
 bg_color = Color(0.1, 0.1, 0.15, 0.96)
@@ -10,18 +10,18 @@ corner_radius_top_right = 18
 corner_radius_bottom_right = 18
 corner_radius_bottom_left = 18
 
-[node name="Checkout" type="Node2D"]
+[node name="Checkout" type="Node2D" unique_id=512372333]
 script = ExtResource("1_checkout")
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="." unique_id=444368705]
 z_index = -10
 position = Vector2(576, 324)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_bg")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=779107470]
 
-[node name="UI" type="Control" parent="CanvasLayer"]
+[node name="UI" type="Control" parent="CanvasLayer" unique_id=1092785266]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,42 +29,40 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="CanvasLayer/UI"]
+[node name="Title" type="Label" parent="CanvasLayer/UI" unique_id=1071855726]
 layout_mode = 1
-offset_left = 0.0
 offset_top = 34.0
 offset_right = 1152.0
 offset_bottom = 80.0
-text = "Which cart is mine?"
-horizontal_alignment = 1
-theme_override_font_sizes/font_size = 42
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 42
+text = "Which cart is mine?"
+horizontal_alignment = 1
 
-[node name="Subtitle" type="Label" parent="CanvasLayer/UI"]
+[node name="Subtitle" type="Label" parent="CanvasLayer/UI" unique_id=1430567485]
 layout_mode = 1
-offset_left = 0.0
 offset_top = 82.0
 offset_right = 1152.0
 offset_bottom = 116.0
-text = "Pick the cart with the products you caught, for the price you have to pay."
-horizontal_alignment = 1
-theme_override_font_sizes/font_size = 24
 theme_override_colors/font_color = Color(0.9, 0.9, 0.6, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "Pick the cart with the products you caught, for the price you have to pay."
+horizontal_alignment = 1
 
-[node name="Carts" type="HBoxContainer" parent="CanvasLayer/UI"]
+[node name="Carts" type="HBoxContainer" parent="CanvasLayer/UI" unique_id=603920111]
 layout_mode = 1
 offset_left = 72.0
 offset_top = 158.0
 offset_right = 1080.0
 offset_bottom = 578.0
-alignment = 1
 theme_override_constants/separation = 24
+alignment = 1
 
-[node name="Feedback" type="Label" parent="CanvasLayer/UI"]
+[node name="Feedback" type="Label" parent="CanvasLayer/UI" unique_id=735387601]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -78,27 +76,26 @@ offset_right = 360.0
 offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 34
 text = "That's not my cart!"
 horizontal_alignment = 1
 vertical_alignment = 1
-theme_override_font_sizes/font_size = 34
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 8
 
-[node name="Hint" type="Label" parent="CanvasLayer/UI"]
+[node name="Hint" type="Label" parent="CanvasLayer/UI" unique_id=1677045492]
 layout_mode = 1
-offset_left = 0.0
 offset_top = 588.0
 offset_right = 1152.0
 offset_bottom = 624.0
-text = "◀ ▶  choose   •   Space / click  to confirm"
-horizontal_alignment = 1
-theme_override_font_sizes/font_size = 22
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 22
+text = "◀ ▶  choose   •   Space / click  to confirm"
+horizontal_alignment = 1
 
-[node name="ResultPanel" type="Panel" parent="CanvasLayer/UI"]
+[node name="ResultPanel" type="Panel" parent="CanvasLayer/UI" unique_id=1028981917]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -114,17 +111,17 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("panel_style")
 
-[node name="ResultLabel" type="Label" parent="CanvasLayer/UI/ResultPanel"]
+[node name="ResultLabel" type="Label" parent="CanvasLayer/UI/ResultPanel" unique_id=1886420550]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "That's my cart!"
-horizontal_alignment = 1
-vertical_alignment = 1
-theme_override_font_sizes/font_size = 34
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 34
+text = "That's my cart!"
+horizontal_alignment = 1
+vertical_alignment = 1
